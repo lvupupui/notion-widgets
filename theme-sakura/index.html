@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌸 樱花粉紫主题 — Notion 中文组件包</title>
+<style>
+:root{
+--pink:#FF6B9D;--purple:#7B4BA3;--soft-purple:#C9B3FF;
+--light-pink:#FFE2EE;--yellow:#FFD66B;--text:#4B2B68;--text-light:#8B6BA3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:'ZCOOL KuaiLe','PingFang SC','Microsoft YaHei',sans-serif;
+background:linear-gradient(180deg,#FFE2EF 0%,#F6E7FF 50%,#FFF7EF 100%);
+color:var(--text);line-height:1.6;min-height:100vh;
+}
+.hero{
+text-align:center;padding:50px 20px 30px;position:relative;overflow:hidden;
+}
+.hero::before{
+content:'';position:absolute;top:-80px;right:-40px;
+width:200px;height:200px;background:radial-gradient(circle,rgba(255,107,157,.15),transparent);
+border-radius:50%;
+}
+.hero::after{
+content:'';position:absolute;bottom:-40px;left:-40px;
+width:160px;height:160px;background:radial-gradient(circle,rgba(201,179,255,.15),transparent);
+border-radius:50%;
+}
+.hero h1{
+font-size:42px;font-weight:900;color:var(--purple);
+text-shadow:3px 3px 0 #fff,-3px 3px 0 #fff,3px -3px 0 #fff,-3px -3px 0 #fff,0 10px 24px rgba(123,75,163,.15);
+position:relative;
+}
+.hero p{font-size:16px;color:var(--text-light);margin-top:8px;position:relative}
+.hero .badge{
+display:inline-block;margin-top:16px;padding:8px 24px;border-radius:999px;
+background:linear-gradient(90deg,#FF72A6,#FFC0D9);color:#fff;font-size:14px;font-weight:700;
+box-shadow:0 8px 18px rgba(255,107,157,.25);position:relative;
+}
+.container{max-width:900px;margin:0 auto;padding:0 20px 40px}
+.tier-banner{
+text-align:center;padding:14px;border-radius:999px;margin:24px 0 16px;font-weight:800;font-size:16px;
+}
+.tier-free{background:var(--light-pink);color:var(--pink)}
+.tier-std{background:var(--soft-purple);color:var(--purple)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{
+background:rgba(255,255,255,.86);backdrop-filter:blur(12px);
+border:2px solid rgba(255,255,255,.95);border-radius:24px;
+box-shadow:0 12px 30px rgba(123,75,163,.12),0 4px 10px rgba(255,107,157,.08);
+padding:22px;transition:all .25s;position:relative;overflow:hidden;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(123,75,163,.18)}
+.card h3{font-size:17px;margin-bottom:4px;color:var(--purple)}
+.card .desc{color:var(--text-light);font-size:12px;margin:4px 0 12px}
+.tag{display:inline-block;padding:3px 10px;border-radius:999px;font-size:10px;background:var(--light-pink);color:var(--pink);font-weight:600;margin-right:4px}
+.btn{display:inline-block;padding:7px 16px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;margin-right:4px;border:none;transition:all .2s;font-family:inherit}
+.btn-preview{background:linear-gradient(90deg,#FF72A6,#FFC0D9);color:#fff;box-shadow:0 4px 12px rgba(255,107,157,.2)}
+.btn-preview:hover{transform:translateY(-1px)}
+.btn-copy{background:#E9D8FF;color:var(--purple)}
+.btn-copy:hover{background:#D8C3F2}
+.btn-locked{background:#eee;color:#bbb;cursor:not-allowed}
+.card .decor{position:absolute;top:10px;right:14px;font-size:20px;opacity:.5}
+.howto{
+background:rgba(255,255,255,.86);backdrop-filter:blur(12px);
+border-radius:24px;padding:24px;margin-bottom:20px;
+box-shadow:0 12px 30px rgba(123,75,163,.12);
+}
+.howto h2{color:var(--purple);font-size:19px;margin-bottom:10px}
+.howto ol{padding-left:20px;color:var(--text);font-size:14px}
+.howto li{margin-bottom:6px}
+.howto code{background:var(--light-pink);padding:2px 8px;border-radius:8px;font-size:12px;color:var(--pink)}
+footer{text-align:center;padding:30px;color:var(--text-light);font-size:12px}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>🌸 樱花粉紫主题</h1>
+<p>可爱到犯规的 Notion 中文组件包</p>
+<div class="badge">🎀 免费版 / ⭐ 标准版 ¥19.9 / 👑 Pro ¥49.9</div>
+</div>
+<div class="container">
+<div class="howto"><h2>📖 3秒上手</h2><ol><li>点 <strong>预览</strong> 看效果</li><li>点 <strong>复制链接</strong></li><li>Notion里 <code>/embed</code> → 粘贴 → ✨</li></ol></div>
+
+<div class="tier-banner tier-free">🆓 免费版 — 5个可爱组件</div>
+<div class="grid">
+<div class="card"><div class="decor">📅</div><h3>中文日历</h3><p class="desc">粉紫渐变，大圆角，今日高亮超可爱</p><a class="btn btn-preview" href="calendar.html">▶ 预览</a><button class="btn btn-copy" onclick="copy('calendar.html')">📋 复制</button></div>
+<div class="card"><div class="decor">🕐</div><h3>问候时钟</h3><p class="desc">自动问候+时间，温暖治愈系</p><a class="btn btn-preview" href="greetings-clock.html">▶ 预览</a><button class="btn btn-copy" onclick="copy('greetings-clock.html')">📋 复制</button></div>
+<div class="card"><div class="decor">⏳</div><h3>本月剩余</h3><p class="desc">天/时/分/秒 实时倒数，督促自己</p><a class="btn btn-preview" href="countdown-month.html">▶ 预览</a><button class="btn btn-copy" onclick="copy('countdown-month.html')">📋 复制</button></div>
+<div class="card"><div class="decor">🌅</div><h3>极简问候</h3><p class="desc">一句温暖问候+emoji，轻量嵌入</p><a class="btn btn-preview" href="minimal-greetings.html">▶ 预览</a><button class="btn btn-copy" onclick="copy('minimal-greetings.html')">📋 复制</button></div>
+<div class="card"><div class="decor">🔗</div><h3>快捷导航</h3><p class="desc">胶囊按钮导航，可爱又实用</p><a class="btn btn-preview" href="nav.html">▶ 预览</a><button class="btn btn-copy" onclick="copy('nav.html')">📋 复制</button></div>
+</div>
+
+<div class="tier-banner tier-std">⭐ 标准版 ¥19.9 — 免费版5个 + 以下6个</div>
+<div class="grid">
+<div class="card"><div class="decor">🍅</div><h3>番茄钟</h3><span class="tag">热门</span><p class="desc">粉紫渐变进度环，25/5/15分</p><a class="btn btn-preview" href="pomodoro.html">▶ 预览</a><button class="btn btn-copy btn-locked">🔒 付费</button></div>
+<div class="card"><div class="decor">💬</div><h3>每日一言</h3><p class="desc">随机名人名言，每天一句inspiration</p><a class="btn btn-preview" href="minimal-quote.html">▶ 预览</a><button class="btn btn-copy btn-locked">🔒 付费</button></div>
+<div class="card"><div class="decor">🎯</div><h3>通用倒计时</h3><p class="desc">设任意目标日，天时秒督促</p><a class="btn btn-preview" href="countDown.html">▶ 预览</a><button class="btn btn-copy btn-locked">🔒 付费</button></div>
+<div class="card"><div class="decor">✨</div><h3>天数倒计时</h3><p class="desc">超大数字只显示天数</p><a class="btn btn-preview" href="count-down-days-only.html">▶ 预览</a><button class="btn btn-copy btn-locked">🔒 付费</button></div>
+<div class="card"><div class="decor">🧭</div><h3>垂直导航</h3><p class="desc">粉嫩竖排导航，更优雅</p><a class="btn btn-preview" href="nav-vertical.html">▶ 预览</a><button class="btn btn-copy btn-locked">🔒 付费</button></div>
+<div class="card"><div class="decor">🎀</div><h3>按钮组件</h3><p class="desc">粉嫩CTA，引导跳转</p><a class="btn btn-preview" href="button.html">▶ 预览</a><button class="btn btn-copy btn-locked">🔒 付费</button></div>
+</div>
+</div>
+<footer>🌸 樱花粉紫主题 v1.0 · Made with ❤️</footer>
+<script>
+function copy(f){var u=location.href.replace(/\/[^/]*$/,'/')+f;navigator.clipboard.writeText(u).then(function(){alert('✅ 已复制！\nNotion里 /embed 粘贴即可')}).catch(function(){prompt('复制：',u)})}
+</script>
+</body>
+</html>

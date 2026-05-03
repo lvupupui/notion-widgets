@@ -1,0 +1,96 @@
+<style>
+:root {
+  --pink: #FF6B9D;
+  --purple: #7B4BA3;
+  --soft-purple: #C9B3FF;
+  --light-pink: #FFE2EE;
+  --yellow: #FFD66B;
+  --cream: #FFF8F3;
+  --text: #4B2B68;
+  --text-light: #8B6BA3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family: 'ZCOOL KuaiLe','PingFang SC','Microsoft YaHei',sans-serif;
+  background: linear-gradient(180deg, #FFE2EF 0%, #F6E7FF 50%, #FFF7EF 100%);
+  min-height:100vh;display:flex;justify-content:center;align-items:center;padding:16px;
+}
+.card{
+  background: rgba(255,255,255,0.86);backdrop-filter:blur(12px);
+  border:2px solid rgba(255,255,255,0.95);border-radius:28px;
+  box-shadow: 0 16px 40px rgba(123,75,163,0.16), 0 6px 14px rgba(255,107,157,0.12);
+  padding:28px;text-align:center;color:var(--text);
+}
+.title{
+  font-size:22px;font-weight:900;color:var(--purple);margin-bottom:16px;
+  text-shadow: 3px 3px 0 #fff, -3px 3px 0 #fff, 3px -3px 0 #fff, -3px -3px 0 #fff, 0 8px 16px rgba(123,75,163,0.12);
+}
+.num{
+  font-family:'JetBrains Mono','SF Mono',monospace;
+  font-size:48px;font-weight:800;color:var(--pink);
+  line-height:1.1;
+}
+.label{font-size:13px;color:var(--text-light);margin-top:2px}
+.pill{
+  display:inline-block;padding:8px 22px;border-radius:999px;
+  background:linear-gradient(90deg,#FF79A8,#FFC0D9);color:#fff;
+  font-weight:700;font-size:14px;box-shadow:0 8px 18px rgba(255,107,157,0.28);
+}
+.btn{
+  display:inline-block;padding:10px 24px;border-radius:999px;
+  border:none;font-size:14px;font-weight:700;cursor:pointer;
+  font-family:inherit;transition:all .2s;
+}
+.btn-primary{background:linear-gradient(90deg,#FF72A6,#FFC0D9);color:#fff;box-shadow:0 6px 16px rgba(255,107,157,0.25)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-light{background:#E9D8FF;color:#6D3C98}
+.btn-light:hover{background:#D8C3F2}
+.grid{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.box{
+  background:rgba(255,255,255,0.78);border-radius:24px;
+  border:2px solid rgba(240,200,220,0.6);
+  box-shadow:0 8px 20px rgba(123,75,163,0.10);
+  padding:14px 16px;min-width:64px;text-align:center;
+}
+.star{color:var(--yellow);text-shadow:0 0 8px rgba(255,214,107,.5)}
+.decor{font-size:28px;position:absolute}
+
+.decor-tl{top:8px;left:12px}.decor-tr{top:8px;right:12px}
+.calendar{width:100%;max-width:300px;margin:0 auto}
+.cal-header{background:var(--purple);color:#fff;padding:12px;border-radius:20px 20px 0 0;font-size:16px;font-weight:800}
+.cal-header button{background:none;border:none;color:#fff;font-size:16px;cursor:pointer}
+.cal-days{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:8px}
+.cal-days span{font-size:12px;color:var(--text-light);font-weight:600;text-align:center}
+.cal-cells{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:0 8px 8px}
+.cal-cells div{text-align:center;padding:6px 0;font-size:13px;border-radius:50%;width:30px;height:30px;line-height:30px;margin:0 auto}
+.cal-cells .today{background:var(--pink);color:#fff;font-weight:800}
+.cal-cells .other{color:#ddd}
+</style></head><body>
+<div class="card"><span class="decor decor-tl star">⭐</span><span class="decor decor-tr star">❤️</span>
+<div class="title">📅 中文日历</div>
+<div class="calendar" id="cal"></div>
+</div>
+<script>
+var M=['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+var W=['一','二','三','四','五','六','日'];
+var now=new Date();
+function render(y,m){
+if(m<0){y--;m=11}if(m>11){y++;m=0}
+var fd=new Date(y,m,1).getDay();fd=fd===0?6:fd-1;
+var dim=new Date(y,m+1,0).getDate();
+var dip=new Date(y,m,0).getDate();
+var td=new Date(),isTm=(y===td.getFullYear()&&m===td.getMonth());
+var h='<div class="cal-header"><button onclick="render('+y+','+(m-1)+')">◀</button> '+M[m]+' '+y+' <button onclick="render('+y+','+(m+1)+')">▶</button></div>';
+h+='<div class="cal-days">';for(var i=0;i<7;i++)h+='<span>'+W[i]+'</span>';h+='</div>';
+h+='<div class="cal-cells">';
+for(var i=0;i<fd;i++)h+='<div class="other">'+(dip-fd+i+1)+'</div>';
+for(var d=1;d<=dim;d++){
+var c='';if(isTm&&d===td.getDate())c=' today';
+h+='<div class="'+c+'">'+d+'</div>';
+}
+var t=fd+dim,r=7-(t%7);if(r<7)for(var i=1;i<=r;i++)h+='<div class="other">'+i+'</div>';
+h+='</div>';
+document.getElementById('cal').innerHTML=h;
+}
+render(now.getFullYear(),now.getMonth());
+</script></body></html>

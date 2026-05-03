@@ -1,0 +1,62 @@
+<style>
+:root {
+  --pink: #FF6B9D;
+  --purple: #7B4BA3;
+  --soft-purple: #C9B3FF;
+  --light-pink: #FFE2EE;
+  --yellow: #FFD66B;
+  --cream: #FFF8F3;
+  --text: #4B2B68;
+  --text-light: #8B6BA3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family: 'ZCOOL KuaiLe','PingFang SC','Microsoft YaHei',sans-serif;
+  background: linear-gradient(180deg, #FFE2EF 0%, #F6E7FF 50%, #FFF7EF 100%);
+  min-height:100vh;display:flex;justify-content:center;align-items:center;padding:16px;
+}
+.card{
+  background: rgba(255,255,255,0.86);backdrop-filter:blur(12px);
+  border:2px solid rgba(255,255,255,0.95);border-radius:28px;
+  box-shadow: 0 16px 40px rgba(123,75,163,0.16), 0 6px 14px rgba(255,107,157,0.12);
+  padding:28px;text-align:center;color:var(--text);
+}
+.title{
+  font-size:22px;font-weight:900;color:var(--purple);margin-bottom:16px;
+  text-shadow: 3px 3px 0 #fff, -3px 3px 0 #fff, 3px -3px 0 #fff, -3px -3px 0 #fff, 0 8px 16px rgba(123,75,163,0.12);
+}
+.num{
+  font-family:'JetBrains Mono','SF Mono',monospace;
+  font-size:48px;font-weight:800;color:var(--pink);
+  line-height:1.1;
+}
+.label{font-size:13px;color:var(--text-light);margin-top:2px}
+.pill{
+  display:inline-block;padding:8px 22px;border-radius:999px;
+  background:linear-gradient(90deg,#FF79A8,#FFC0D9);color:#fff;
+  font-weight:700;font-size:14px;box-shadow:0 8px 18px rgba(255,107,157,0.28);
+}
+.btn{
+  display:inline-block;padding:10px 24px;border-radius:999px;
+  border:none;font-size:14px;font-weight:700;cursor:pointer;
+  font-family:inherit;transition:all .2s;
+}
+.btn-primary{background:linear-gradient(90deg,#FF72A6,#FFC0D9);color:#fff;box-shadow:0 6px 16px rgba(255,107,157,0.25)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-light{background:#E9D8FF;color:#6D3C98}
+.btn-light:hover{background:#D8C3F2}
+.grid{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.box{
+  background:rgba(255,255,255,0.78);border-radius:24px;
+  border:2px solid rgba(240,200,220,0.6);
+  box-shadow:0 8px 20px rgba(123,75,163,0.10);
+  padding:14px 16px;min-width:64px;text-align:center;
+}
+.star{color:var(--yellow);text-shadow:0 0 8px rgba(255,214,107,.5)}
+.decor{font-size:28px;position:absolute}
+</style></style></head><body>
+<div class="card"><span class="decor" style="top:8px;right:12px">✨</span>
+<div class="title">⏰ 距离2027还有</div>
+<div class="box" style="margin:0 auto"><div class="num" id="d" style="font-size:64px">--</div><div class="label">天</div></div>
+</div>
+<script>var t=new Date('2027-01-01');function u(){var ds=Math.ceil((t-new Date())/864e5);if(ds<0)ds=0;document.getElementById('d').textContent=ds}u();setInterval(u,36e5)</script></body></html>
