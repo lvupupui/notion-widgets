@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notion 中文组件包</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f0ff;color:#333;line-height:1.6}
+.header{background:linear-gradient(135deg,#9b59b6,#6c63ff);color:#fff;padding:40px 20px;text-align:center}
+.header h1{font-size:32px;font-weight:800}
+.header p{font-size:15px;opacity:.9;margin-top:6px}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.tier-banner{text-align:center;padding:12px;border-radius:14px;margin:28px 0 16px 0;font-weight:700;font-size:16px}
+.tier-free{background:#e8f5e9;color:#2e7d32;border:2px solid #a5d6a7}
+.tier-standard{background:#fff3e0;color:#e65100;border:2px solid #ffcc80}
+.tier-pro{background:#ede7f6;color:#4a148c;border:2px solid #b39ddb}
+.tier-price{font-size:20px;margin:0 6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.card{background:#fff;border-radius:14px;padding:20px;box-shadow:0 2px 10px rgba(155,89,182,.05);transition:all .25s;border:1.5px solid transparent}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(155,89,182,.1);border-color:rgba(155,89,182,.2)}
+.card.locked{opacity:.75;border:2px dashed rgba(155,89,182,.2)}
+.card h3{font-size:16px;margin-bottom:3px}
+.card .desc{color:#888;font-size:12px;margin:4px 0 10px 0}
+.tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#f5f0ff;color:#9b59b6;margin-right:4px}
+.btn{display:inline-block;padding:6px 14px;border-radius:16px;font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;margin-right:5px;border:none;transition:all .2s}
+.btn-preview{background:linear-gradient(135deg,#9b59b6,#6c63ff);color:#fff}
+.btn-preview:hover{opacity:.85}
+.btn-copy{background:#f5f0ff;color:#9b59b6;border:1px solid rgba(155,89,182,.2)}
+.btn-copy:hover{background:#e8d5f0}
+.btn-copy.locked{background:#eee;color:#bbb;cursor:not-allowed;border:1px solid #ddd}
+.howto{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 10px rgba(155,89,182,.05);margin-bottom:16px}
+.howto h2{color:#9b59b6;font-size:18px;margin-bottom:10px}
+.howto ol{padding-left:20px;color:#555;font-size:14px}
+.howto li{margin-bottom:6px}
+.howto code{background:#f5f0ff;padding:1px 6px;border-radius:4px;font-size:12px;color:#9b59b6}
+footer{text-align:center;padding:24px;color:#bbb;font-size:12px;border-top:1px solid #e0d8f0;margin-top:16px}
+</style>
+</head>
+<body>
+<div class="header"><h1>🎨 Notion 中文组件包</h1><p>把普通 Notion 变成颜值爆表的工作台</p></div>
+<div class="container">
+<div class="howto"><h2>📖 怎么用？3 秒搞定</h2><ol><li>点 <strong>预览</strong> 看效果</li><li>点 <strong>复制链接</strong></li><li>Notion 里输入 <code>/embed</code> → 粘贴 → ✅</li></ol></div>
+
+<div class="tier-banner tier-free">🆓 <span class="tier-price">免费版</span> — 5个组件</div>
+<div class="grid">
+<div class="card"><h3>📅 中文日历</h3><p class="desc">紫色主题，全中文月份/星期，今日高亮</p><a class="btn btn-preview" href="calendar.html">▶ 预览</a><button class="btn btn-copy" onclick="copy('calendar.html')">📋 复制</button></div>
+<div class="card"><h3>🕐 问候时钟</h3><p class="desc">自动早上好/下午好/晚上好+实时时钟</p><a class="btn btn-preview" href="greetings-clock.html">▶ 预览</a><button class="btn btn-copy" onclick="copy('greetings-clock.html')">📋 复制</button></div>
+<div class="card"><h3>⏳ 本月剩余</h3><p class="desc">天/时/分/秒实时倒数，看时间流逝</p><a class="btn btn-preview" href="countdown-month.html">▶ 预览</a><button class="btn btn-copy" onclick="copy('countdown-month.html')">📋 复制</button></div>
+<div class="card"><h3>🌅 极简问候</h3><p class="desc">一句温暖问候+emoji，轻量快速嵌入</p><a class="btn btn-preview" href="minimal-greetings.html">▶ 预览</a><button class="btn btn-copy" onclick="copy('minimal-greetings.html')">📋 复制</button></div>
+<div class="card"><h3>🔗 快捷导航</h3><p class="desc">常用链接导航栏，一键跳转</p><a class="btn btn-preview" href="nav.html">▶ 预览</a><button class="btn btn-copy" onclick="copy('nav.html')">📋 复制</button></div>
+</div>
+
+<div class="tier-banner tier-standard">⭐ <span class="tier-price">标准版 ¥19.9</span> — 12个组件（含免费5个+以下7个）</div>
+<div class="grid">
+<div class="card locked"><h3>🍅 番茄钟</h3><span class="tag">热门</span><p class="desc">紫色渐变进度环，25/5/15分三档</p><a class="btn btn-preview" href="pomodoro.html">▶ 预览</a><button class="btn btn-copy locked">🔒 付费解锁</button></div>
+<div class="card locked"><h3>💬 每日一言</h3><p class="desc">极简名言展示，每天一句 inspiration</p><a class="btn btn-preview" href="minimal-quote.html">▶ 预览</a><button class="btn btn-copy locked">🔒 付费解锁</button></div>
+<div class="card locked"><h3>🔢 通用倒计时</h3><p class="desc">设任意目标日，大字体督促自己</p><a class="btn btn-preview" href="countDown.html">▶ 预览</a><button class="btn btn-copy locked">🔒 付费解锁</button></div>
+<div class="card locked"><h3>📆 天数倒计时</h3><p class="desc">只显示天数，超大字体</p><a class="btn btn-preview" href="count-down-days-only.html">▶ 预览</a><button class="btn btn-copy locked">🔒 付费解锁</button></div>
+<div class="card locked"><h3>🧭 垂直导航</h3><p class="desc">竖排导航+社交图标</p><a class="btn btn-preview" href="nav-vertical.html">▶ 预览</a><button class="btn btn-copy locked">🔒 付费解锁</button></div>
+<div class="card locked"><h3>🌐 按钮组件</h3><p class="desc">漂亮的CTA按钮，引导到其他页面</p><a class="btn btn-preview" href="button.html">▶ 预览</a><button class="btn btn-copy locked">🔒 付费解锁</button></div>
+<div class="card locked"><h3>🖼 相册画廊</h3><p class="desc">在Notion里展示图片集合</p><a class="btn btn-preview" href="photo-gallery/index.html">▶ 预览</a><button class="btn btn-copy locked">🔒 付费解锁</button></div>
+</div>
+
+<div class="tier-banner tier-pro">👑 <span class="tier-price">Pro版 ¥49.9</span> — 标准版全部+4项Pro专属+每月更新</div>
+<div class="grid">
+<div class="card locked"><h3>🔒 农历日历</h3><span class="tag">Pro专属</span><p class="desc">显示农历、节气、传统节日</p><a class="btn btn-preview" href="pro-lunar.html">▶ 预览</a><button class="btn btn-copy locked">🔒 Pro解锁</button></div>
+<div class="card locked"><h3>🔒 中国天气</h3><span class="tag">Pro专属</span><p class="desc">实时城市天气+空气质量</p><a class="btn btn-preview" href="pro-weather.html">▶ 预览</a><button class="btn btn-copy locked">🔒 Pro解锁</button></div>
+<div class="card locked"><h3>🔒 节假日倒计时</h3><span class="tag">Pro专属</span><p class="desc">春节/国庆/端午倒计时</p><a class="btn btn-preview" href="pro-holiday.html">▶ 预览</a><button class="btn btn-copy locked">🔒 Pro解锁</button></div>
+<div class="card locked"><h3>🔒 6套配色主题</h3><span class="tag">Pro专属</span><p class="desc">暗夜紫/樱花粉/森林绿/海洋蓝/日系米/赛博</p><a class="btn btn-preview" href="pro-theme.html">▶ 预览</a><button class="btn btn-copy locked">🔒 Pro解锁</button></div>
+</div>
+</div>
+<footer>Notion 中文组件包 v1.0 · Made with ❤️</footer>
+<script>
+function copy(f){var u=location.href.replace(/\/[^/]*$/,'/')+f;navigator.clipboard.writeText(u).then(function(){alert('✅ 已复制！\nNotion里 /embed 粘贴即可')}).catch(function(){prompt('复制：',u)})}
+</script>
+</body>
+</html>
