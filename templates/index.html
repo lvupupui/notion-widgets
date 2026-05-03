@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notion 中文模板商店</title>
+<style>
+:root{--pink:#FF6B9D;--purple:#7B4BA3;--text:#4B2B68}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(180deg,#FFE2EF,#F6E7FF,#FFF7EF);color:var(--text);line-height:1.6;min-height:100vh}
+.hero{text-align:center;padding:44px 20px 28px}
+.hero h1{font-size:34px;font-weight:900;color:var(--purple)}
+.hero p{font-size:14px;color:#8B6BA3;margin-top:6px}
+.container{max-width:700px;margin:0 auto;padding:0 20px 40px}
+.grid{display:flex;flex-direction:column;gap:14px}
+.card{background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-radius:20px;padding:24px;box-shadow:0 8px 24px rgba(155,89,182,.08);text-decoration:none;color:inherit;display:block;transition:all .25s;border:2px solid transparent}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(155,89,182,.14);border-color:rgba(155,89,182,.2)}
+.card-top{display:flex;align-items:center;gap:14px}
+.card-icon{font-size:40px}
+.card-info{flex:1}
+.card-title{font-size:18px;font-weight:800;color:var(--purple)}
+.card-desc{font-size:13px;color:#8B6BA3;margin-top:4px}
+.card-meta{display:flex;gap:8px;margin-top:10px;align-items:center}
+.price{display:inline-block;padding:4px 14px;border-radius:12px;background:linear-gradient(90deg,var(--pink),#FFB8D0);color:#fff;font-size:13px;font-weight:700}
+.tag{display:inline-block;padding:3px 10px;border-radius:10px;font-size:11px;background:#F0E6F6;color:var(--purple)}
+.back-link{display:block;text-align:center;margin-top:20px;color:var(--pink);font-size:13px;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="hero"><h1>📦 Notion 中文模板</h1><p>点开即用的效率工具 · 每个都有成品预览</p></div>
+<div class="container">
+<div class="grid">
+<a class="card" href="habit-tracker/">
+<div class="card-top"><div class="card-icon">✅</div><div class="card-info"><div class="card-title">习惯打卡器</div><div class="card-desc">每天打勾，连续天数追踪，月视图统计</div></div></div>
+<div class="card-meta"><span class="price">¥9.9</span><span class="tag">极简</span><span class="tag">高效</span><span class="tag">2分钟上手</span></div>
+</a>
+<a class="card" href="monthly-planner/">
+<div class="card-top"><div class="card-icon">📅</div><div class="card-info"><div class="card-title">月度管理器</div><div class="card-desc">月目标→周计划→每日重点，三层拆解</div></div></div>
+<div class="card-meta"><span class="price">¥19.9</span><span class="tag">系统</span><span class="tag">全面</span><span class="tag">复盘</span></div>
+</a>
+<a class="card" href="goal-tracker/">
+<div class="card-top"><div class="card-icon">🎯</div><div class="card-info"><div class="card-title">目标追踪器</div><div class="card-desc">年度目标→里程碑→进度条，一眼看清</div></div></div>
+<div class="card-meta"><span class="price">¥19.9</span><span class="tag">长期</span><span class="tag">可视化</span><span class="tag">鞭策</span></div>
+</a>
+</div>
+<a class="back-link" href="../">← 返回组件包</a>
+</div>
+</body></html>

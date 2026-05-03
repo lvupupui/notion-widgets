@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>习惯打卡器</title>
+<style>
+:root{--pink:#FF6B9D;--purple:#7B4BA3;--bg:#FFF8FA;--card:#fff;--text:#4B2B68;--light:#F0E6F6;--done:#BFD8B8;--miss:#FFE2EE}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);padding:20px;color:var(--text)}
+.container{max-width:480px;margin:0 auto}
+.header{text-align:center;margin-bottom:24px}
+.header h1{font-size:24px;font-weight:800;color:var(--purple)}
+.header p{font-size:13px;color:#999;margin-top:4px}
+.card{background:var(--card);border-radius:18px;padding:18px;margin-bottom:12px;box-shadow:0 2px 12px rgba(155,89,182,.06)}
+.habit-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.habit-name{font-weight:700;font-size:15px}
+.habit-streak{font-size:12px;color:var(--pink);font-weight:600}
+.days{display:flex;gap:6px;flex-wrap:wrap}
+.day{width:26px;height:26px;border-radius:50%;border:2px solid var(--light);display:flex;align-items:center;justify-content:center;font-size:10px;color:#bbb;font-weight:600}
+.day.done{background:var(--done);border-color:var(--done);color:#3a6b35}
+.day.today{border-color:var(--pink);color:var(--pink);font-weight:800}
+.day.miss{background:var(--miss);border-color:var(--miss);color:#d4859f}
+.month-label{font-size:12px;color:#999;margin-bottom:10px;font-weight:600}
+.tag{display:inline-block;padding:2px 8px;border-radius:8px;font-size:10px;margin-right:4px}
+.tag-morning{background:#FFF3E0;color:#E65100}
+.tag-health{background:#E8F5E9;color:#2E7D32}
+.tag-mind{background:#EDE7F6;color:#4A148C}
+.progress-bar{height:4px;background:var(--light);border-radius:2px;margin-top:8px;overflow:hidden}
+.progress-fill{height:100%;background:var(--pink);border-radius:2px}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header"><h1>✅ 习惯打卡器</h1><p>2026年5月 · 第1周</p></div>
+
+<div class="card">
+<div class="habit-header"><span class="habit-name">🧘 冥想 10 分钟</span><span class="tag tag-mind">心灵</span><span class="habit-streak">🔥 连续 7 天</span></div>
+<div class="month-label">本周</div>
+<div class="days">
+<span class="day done">一</span><span class="day done">二</span><span class="day done">三</span><span class="day today">四</span><span class="day">五</span><span class="day">六</span><span class="day">日</span>
+</div>
+<div class="progress-bar"><div class="progress-fill" style="width:57%"></div></div>
+</div>
+
+<div class="card">
+<div class="habit-header"><span class="habit-name">🏃 晨跑 3 公里</span><span class="tag tag-health">健康</span><span class="habit-streak">🔥 连续 3 天</span></div>
+<div class="month-label">本周</div>
+<div class="days">
+<span class="day">一</span><span class="day done">二</span><span class="day done">三</span><span class="day done">四</span><span class="day">五</span><span class="day">六</span><span class="day">日</span>
+</div>
+<div class="progress-bar"><div class="progress-fill" style="width:43%"></div></div>
+</div>
+
+<div class="card">
+<div class="habit-header"><span class="habit-name">📖 阅读 30 分钟</span><span class="tag tag-morning">晨间</span><span class="habit-streak">🔥 连续 12 天</span></div>
+<div class="month-label">本周</div>
+<div class="days">
+<span class="day done">一</span><span class="day done">二</span><span class="day done">三</span><span class="day today">四</span><span class="day">五</span><span class="day">六</span><span class="day">日</span>
+</div>
+<div class="progress-bar"><div class="progress-fill" style="width:57%"></div></div>
+</div>
+
+<div class="card">
+<div class="habit-header"><span class="habit-name">✍️ 写日记</span><span class="tag tag-mind">心灵</span><span class="habit-streak">⏸ 断了</span></div>
+<div class="month-label">本周</div>
+<div class="days">
+<span class="day done">一</span><span class="day done">二</span><span class="day miss">三</span><span class="day today">四</span><span class="day">五</span><span class="day">六</span><span class="day">日</span>
+</div>
+<div class="progress-bar"><div class="progress-fill" style="width:28%"></div></div>
+</div>
+
+<div class="card" style="text-align:center;border:2px dashed rgba(155,89,182,.2);background:#faf8ff;cursor:pointer">
+<p style="color:var(--pink);font-weight:700;font-size:14px">＋ 添加新习惯</p>
+</div>
+</div>
+</body>
+</html>
