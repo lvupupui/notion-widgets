@@ -1,0 +1,72 @@
+<style>
+:root{
+--paper:#F8EEDC;--cream:#FFF8EA;--pink:#F7A7B8;
+--purple:#D8C3F2;--yellow:#FFE39A;--brown:#5B4333;
+--soft-brown:#7A6252;--orange:#FFD6A5;--sky:#DCEEFF;--leaf:#BFD8B8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:'LXGW WenKai','Ma Shan Zheng','PingFang SC','Microsoft YaHei',serif;
+background:linear-gradient(180deg,#FFF7E8,#F4E4CC);
+min-height:100vh;display:flex;justify-content:center;align-items:center;padding:16px;
+}
+.card{
+background:#FFF8EA;border:2px solid #F1C7B8;border-radius:20px;
+box-shadow:0 8px 18px rgba(91,67,51,.14),0 2px 5px rgba(91,67,51,.08);
+padding:26px;text-align:center;color:var(--brown);position:relative;
+}
+.card::before{
+content:"";position:absolute;inset:8px;
+border:2px dashed rgba(91,67,51,.18);border-radius:14px;pointer-events:none;
+}
+.title{
+font-size:22px;font-weight:900;color:var(--brown);margin-bottom:14px;
+position:relative;display:inline-block;
+}
+.title::after{
+content:"";position:absolute;bottom:-4px;left:0;right:0;
+height:3px;background:linear-gradient(90deg,var(--pink),var(--yellow));
+border-radius:2px;
+}
+.num{
+font-family:'JetBrains Mono','SF Mono',monospace;
+font-size:46px;font-weight:800;color:var(--brown);line-height:1.1;
+}
+.label{font-size:12px;color:var(--soft-brown);margin-top:2px}
+.tape{
+display:inline-block;padding:7px 18px;background:var(--pink);color:#fff;
+border-radius:6px;font-weight:800;font-size:13px;
+transform:rotate(-2deg);box-shadow:0 4px 8px rgba(91,67,51,.1);
+}
+.sticker{
+display:inline-block;padding:5px 14px;background:var(--cream);
+border:2px solid var(--pink);border-radius:12px;font-size:12px;font-weight:700;
+color:var(--brown);box-shadow:0 0 0 3px #fff,0 4px 8px rgba(91,67,51,.08);
+}
+.btn{
+display:inline-block;padding:9px 22px;border-radius:18px;
+border:2px solid var(--pink);font-size:13px;font-weight:700;cursor:pointer;
+font-family:inherit;transition:all .2s;background:var(--cream);color:var(--brown);
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(91,67,51,.12)}
+.btn-primary{background:var(--pink);color:#fff;border-color:var(--pink)}
+.grid{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.box{
+background:var(--cream);border-radius:16px;
+border:2px dashed rgba(91,67,51,.15);
+padding:14px 16px;min-width:60px;text-align:center;
+}
+.decor{position:absolute;font-size:24px;opacity:.7}
+</style></style></head><body>
+<div class="card"><span class="decor" style="top:8px;left:12px">🕐</span><span class="decor" style="top:8px;right:12px">✿</span>
+<div class="title" id="g" style="font-size:26px"></div>
+<div class="num" id="t" style="font-size:40px;color:var(--brown)"></div>
+<div style="color:var(--soft-brown);font-size:13px" id="dt"></div>
+</div>
+<script>var W=['日','一','二','三','四','五','六'];
+function upd(){var n=new Date(),h=n.getHours(),g,em;
+if(h<6){g='夜深了';em='🌙'}else if(h<9){g='早上好';em='☀️'}else if(h<12){g='上午好';em='🌤️'}else if(h<14){g='中午好';em='☀️'}else if(h<18){g='下午好';em='🌤️'}else if(h<22){g='晚上好';em='🌙'}else{g='夜深了';em='🌙'}
+document.getElementById('g').textContent=em+' '+g+'！';
+document.getElementById('t').textContent=String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0')+':'+String(n.getSeconds()).padStart(2,'0');
+document.getElementById('dt').textContent=n.getFullYear()+'年'+(n.getMonth()+1)+'月'+n.getDate()+'日 星期'+W[n.getDay()];
+}upd();setInterval(upd,1000);</script></body></html>

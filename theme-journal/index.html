@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✂️ 日系手账主题 — Notion 中文组件包</title>
+<style>
+:root{--paper:#F8EEDC;--cream:#FFF8EA;--pink:#F7A7B8;--purple:#D8C3F2;--yellow:#FFE39A;--brown:#5B4333;--soft-brown:#7A6252;--leaf:#BFD8B8}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:'LXGW WenKai','Ma Shan Zheng','PingFang SC','Microsoft YaHei',serif;
+background:#F8EEDC;
+background-image:radial-gradient(rgba(90,60,40,.06) 1px,transparent 1px);
+background-size:16px 16px;
+color:var(--brown);line-height:1.6;
+}
+.hero{text-align:center;padding:44px 20px 28px;position:relative}
+.hero h1{font-size:38px;font-weight:900;color:var(--brown)}
+.hero p{font-size:15px;color:var(--soft-brown);margin-top:6px}
+.hero .tape{display:inline-block;margin-top:14px;padding:7px 20px;background:var(--pink);color:#fff;border-radius:6px;font-weight:800;font-size:13px;transform:rotate(-2deg);box-shadow:0 4px 8px rgba(91,67,51,.1)}
+.container{max-width:880px;margin:0 auto;padding:0 20px 40px}
+.tier-banner{text-align:center;padding:12px;border-radius:14px;margin:20px 0 14px;font-weight:800;font-size:15px}
+.tier-free{background:var(--cream);border:2px dashed rgba(91,67,51,.2)}
+.tier-std{background:var(--purple);color:var(--brown)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{
+background:var(--cream);border:2px solid #F1C7B8;border-radius:18px;
+box-shadow:0 6px 14px rgba(91,67,51,.1),0 2px 4px rgba(91,67,51,.06);
+padding:20px;transition:all .25s;position:relative;
+}
+.card::before{content:"";position:absolute;inset:7px;border:1.5px dashed rgba(91,67,51,.12);border-radius:12px;pointer-events:none}
+.card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(91,67,51,.14)}
+.card h3{font-size:16px;margin-bottom:3px;color:var(--brown)}
+.card .desc{color:var(--soft-brown);font-size:12px;margin:4px 0 10px}
+.tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;background:var(--pink);color:#fff;font-weight:600;margin-right:3px}
+.btn{display:inline-block;padding:6px 14px;border-radius:14px;font-size:11px;font-weight:700;cursor:pointer;text-decoration:none;margin-right:3px;border:1.5px solid var(--pink);transition:all .2s;font-family:inherit;background:var(--cream);color:var(--brown)}
+.btn:hover{background:var(--pink);color:#fff}
+.btn-preview{background:var(--pink);color:#fff}
+.btn-locked{background:#eee;color:#bbb;border-color:#ddd;cursor:not-allowed}
+.btn-locked:hover{background:#eee;color:#bbb}
+.card .decor{position:absolute;top:8px;right:12px;font-size:18px;opacity:.5}
+.howto{background:var(--cream);border:2px solid #F1C7B8;border-radius:18px;padding:22px;margin-bottom:18px;box-shadow:0 6px 14px rgba(91,67,51,.1);position:relative}
+.howto::before{content:"";position:absolute;inset:7px;border:1.5px dashed rgba(91,67,51,.12);border-radius:12px;pointer-events:none}
+.howto h2{color:var(--brown);font-size:18px;margin-bottom:10px;position:relative}
+.howto ol{padding-left:20px;font-size:13px}
+.howto li{margin-bottom:5px}
+.howto code{background:var(--pink);padding:1px 6px;border-radius:4px;font-size:11px;color:#fff}
+footer{text-align:center;padding:28px;color:var(--soft-brown);font-size:12px}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>✂️ 日系手账主题</h1>
+<p>胶带 · 贴纸 · 纸张质感 · 治愈系 Notion 组件</p>
+<div class="tape">🌸 可爱又实用</div>
+</div>
+<div class="container">
+<div class="howto"><h2>📖 3秒上手</h2><ol><li>点 <strong>预览</strong> 看效果</li><li>点 <strong>复制链接</strong></li><li>Notion里 <code>/embed</code> → 粘贴 → ✨</li></ol></div>
+
+<div class="tier-banner tier-free">🆓 免费版 — 5个手账组件</div>
+<div class="grid">
+<div class="card"><div class="decor">📅</div><h3>手账日历</h3><p class="desc">樱花粉头部+虚线边框，日系可爱</p><a class="btn btn-preview" href="calendar.html">▶ 预览</a><button class="btn" onclick="copy('calendar.html')">📋 复制</button></div>
+<div class="card"><div class="decor">🕐</div><h3>问候时钟</h3><p class="desc">手写体问候+时间，纸片质感</p><a class="btn btn-preview" href="greetings-clock.html">▶ 预览</a><button class="btn" onclick="copy('greetings-clock.html')">📋 复制</button></div>
+<div class="card"><div class="decor">⏳</div><h3>本月剩余</h3><p class="desc">天/时/分/秒 贴纸数字格子</p><a class="btn btn-preview" href="countdown-month.html">▶ 预览</a><button class="btn" onclick="copy('countdown-month.html')">📋 复制</button></div>
+<div class="card"><div class="decor">✿</div><h3>手账问候</h3><p class="desc">轻量一句问候+花花，温暖治愈</p><a class="btn btn-preview" href="minimal-greetings.html">▶ 预览</a><button class="btn" onclick="copy('minimal-greetings.html')">📋 复制</button></div>
+<div class="card"><div class="decor">📎</div><h3>贴纸导航</h3><p class="desc">贴纸胶囊按钮，可爱导航栏</p><a class="btn btn-preview" href="nav.html">▶ 预览</a><button class="btn" onclick="copy('nav.html')">📋 复制</button></div>
+</div>
+
+<div class="tier-banner tier-std">⭐ 标准版 ¥19.9 — 6个付费组件</div>
+<div class="grid">
+<div class="card"><div class="decor">🍅</div><h3>番茄钟</h3><span class="tag">热门</span><p class="desc">粉黄渐变进度环，胶囊三档</p><a class="btn btn-preview" href="pomodoro.html">▶ 预览</a><button class="btn btn-locked">🔒 付费</button></div>
+<div class="card"><div class="decor">✿</div><h3>每日一言</h3><p class="desc">手写体名言，随机切换</p><a class="btn btn-preview" href="minimal-quote.html">▶ 预览</a><button class="btn btn-locked">🔒 付费</button></div>
+<div class="card"><div class="decor">🎯</div><h3>年终倒计时</h3><p class="desc">贴纸数字，督促自己</p><a class="btn btn-preview" href="countDown.html">▶ 预览</a><button class="btn btn-locked">🔒 付费</button></div>
+<div class="card"><div class="decor">✂️</div><h3>天数倒计时</h3><p class="desc">超大数字只显示天数</p><a class="btn btn-preview" href="count-down-days-only.html">▶ 预览</a><button class="btn btn-locked">🔒 付费</button></div>
+<div class="card"><div class="decor">✂️</div><h3>书签导航</h3><p class="desc">竖排胶带风书签，更优雅</p><a class="btn btn-preview" href="nav-vertical.html">▶ 预览</a><button class="btn btn-locked">🔒 付费</button></div>
+<div class="card"><div class="decor">🎀</div><h3>贴纸按钮</h3><p class="desc">三色贴纸CTA，引导跳转</p><a class="btn btn-preview" href="button.html">▶ 预览</a><button class="btn btn-locked">🔒 付费</button></div>
+</div>
+</div>
+<footer>✂️ 日系手账主题 v1.0 · Made with ❤️</footer>
+<script>
+function copy(f){var u=location.href.replace(/\/[^/]*$/,'/')+f;navigator.clipboard.writeText(u).then(function(){alert('✅ 已复制！\nNotion里 /embed 粘贴即可')}).catch(function(){prompt('复制：',u)})}
+</script>
+</body>
+</html>
