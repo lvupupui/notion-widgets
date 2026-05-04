@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>元五七｜免费版顶部一屏工作台</title>
+<style>
+:root{
+  --pink:#FF6B9D;--pink2:#FFB8D4;--purple:#7B4BA3;--purple2:#A987E8;
+  --bg1:#FFE2EF;--bg2:#F6E7FF;--cream:#FFF8F3;--card:#fff;--text:#4B2B68;--muted:#8B6AA6;
+  --shadow:0 10px 24px rgba(123,75,163,.13),0 6px 14px rgba(255,107,157,.1);
+}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;min-height:100%;font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:var(--text);overflow:hidden}
+body{background:linear-gradient(135deg,var(--bg1),var(--bg2) 58%,var(--cream));padding:10px}
+.dashboard{
+  width:100%;
+  max-width:1360px;
+  margin:0 auto;
+  border:3px solid rgba(255,255,255,.95);
+  border-radius:28px;
+  background:rgba(255,255,255,.62);
+  box-shadow:var(--shadow);
+  padding:12px;
+  overflow:hidden;
+}
+.top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.logo{
+  width:42px;height:42px;display:grid;place-items:center;border-radius:50%;
+  background:linear-gradient(135deg,var(--pink),var(--purple2));color:#fff;font-weight:950;border:3px solid #fff;
+}
+.brand strong{font-size:24px;letter-spacing:2px;color:var(--purple);white-space:nowrap}
+.brand span{font-size:13px;color:var(--muted);font-weight:850;white-space:nowrap}
+.slogan{
+  padding:9px 14px;border-radius:999px;background:#fff;color:var(--pink);font-weight:950;
+  box-shadow:0 6px 14px rgba(123,75,163,.1);white-space:nowrap;
+}
+.grid{
+  display:grid;
+  grid-template-columns:1.25fr 1fr 1fr 1fr 1fr;
+  grid-template-rows:132px 132px;
+  gap:10px;
+}
+.card{
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+  background:rgba(255,255,255,.88);
+  border:2px solid rgba(255,255,255,.96);
+  box-shadow:0 8px 16px rgba(123,75,163,.1);
+  padding:10px;
+}
+.card h3{margin:0 0 6px;font-size:15px;color:var(--purple);font-weight:950;white-space:nowrap}
+.big{grid-row:span 2}
+.wide{grid-column:span 2}
+.muted{color:var(--muted);font-weight:850;font-size:12px}
+.btn{border:0;border-radius:999px;background:#FFF0F6;border:2px solid #FFD6E7;color:var(--purple);font-weight:950;padding:5px 10px;cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,var(--pink),var(--pink2));color:#fff;border-color:#fff}
+.row{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.center{text-align:center;display:grid;place-items:center;height:calc(100% - 24px)}
+.time{font-size:31px;font-weight:950;color:var(--pink);font-variant-numeric:tabular-nums;line-height:1}
+.bigtext{font-size:24px;font-weight:950;color:var(--purple);line-height:1.18}
+.cal-head{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:5px}
+.cal-title{font-size:14px;font-weight:950;color:var(--purple)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center}
+.cal b{font-size:10px;color:var(--muted)}
+.day{
+  border:0;border-radius:7px;background:#FFF7FB;color:var(--text);font-size:11px;font-weight:900;min-height:21px;padding:0;
+}
+.day.today{background:linear-gradient(135deg,var(--pink),var(--pink2));color:#fff}
+.day.selected{outline:2px solid #FFD66B}
+.counts{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:6px}
+.count{background:#FFF7FB;border-radius:12px;text-align:center;padding:7px 3px;border:1px solid #FFE0EF}
+.count b{display:block;color:var(--purple);font-size:20px;line-height:1;font-variant-numeric:tabular-nums}
+.count span{font-size:10px;color:var(--muted);font-weight:850}
+.progress{height:10px;background:#F4DDF0;border-radius:999px;overflow:hidden;margin-top:8px}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--pink2))}
+.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;height:82px}
+.nav a{display:grid;place-items:center;background:#FFF7FB;border:1px solid #FFE0EF;border-radius:14px;font-weight:950;color:var(--purple);font-size:13px}
+.quote{font-size:18px;font-weight:950;color:var(--purple);text-align:center;line-height:1.35;min-height:58px;display:grid;place-items:center}
+.mini-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.mini-cal span{display:grid;place-items:center;min-height:14px;background:#FFF7FB;border-radius:5px;font-size:9px;color:var(--muted);font-weight:850}
+.mini-cal span.on{background:var(--pink);color:#fff}
+.weather{display:flex;align-items:center;justify-content:space-between;height:66px}
+.temp{font-size:32px;font-weight:950;color:var(--purple);line-height:1}
+.sun{font-size:42px}
+input[type=range]{width:100%}
+.cta{
+  height:78px;display:grid;place-items:center;text-align:center;border-radius:16px;
+  background:linear-gradient(90deg,var(--pink),var(--pink2));color:#fff;font-size:18px;font-weight:950;border:3px solid #fff;
+}
+.divider{
+  height:3px;border:0;border-radius:999px;margin:10px 0 0;
+  background:linear-gradient(90deg,transparent,var(--pink),var(--purple2),transparent)
+}
+.work-note{
+  text-align:center;color:var(--purple);font-size:13px;font-weight:950;margin-top:6px;
+}
+@media(max-width:900px){
+  html,body{overflow:auto}
+  .grid{grid-template-columns:repeat(2,1fr);grid-template-rows:none}
+  .big,.wide{grid-row:auto;grid-column:auto}
+  .card{min-height:126px}
+}
+@media(max-width:560px){
+  .top{align-items:flex-start;flex-direction:column}
+  .grid{grid-template-columns:1fr}
+  html,body{overflow:auto}
+}
+</style>
+</head>
+<body>
+<section class="dashboard">
+  <div class="top">
+    <div class="brand">
+      <div class="logo">元</div>
+      <div><strong>元五七</strong><br><span>免费版顶部一屏工作台</span></div>
+    </div>
+    <div class="slogan">关注 · 点赞 · 评论「元五七」免费获取</div>
+  </div>
+
+  <div class="grid">
+    <article class="card big">
+      <h3>📅 中文日历</h3>
+      <div class="cal-head">
+        <button class="btn" id="prevMonth">‹</button>
+        <div class="cal-title" id="monthTitle"></div>
+        <button class="btn" id="nextMonth">›</button>
+      </div>
+      <div class="cal" id="calendarGrid"></div>
+      <div class="muted" id="selectedDateText" style="margin-top:5px">点击日期可选中</div>
+    </article>
+
+    <article class="card">
+      <h3>⏰ 问候时钟</h3>
+      <div class="center">
+        <div>
+          <div class="bigtext" id="greeting"></div>
+          <div class="time" id="nowTime"></div>
+          <div class="muted" id="nowDate"></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>⏳ 本月剩余</h3>
+      <div class="counts">
+        <div class="count"><b id="cdDay">--</b><span>天</span></div>
+        <div class="count"><b id="cdHour">--</b><span>时</span></div>
+        <div class="count"><b id="cdMin">--</b><span>分</span></div>
+        <div class="count"><b id="cdSec">--</b><span>秒</span></div>
+      </div>
+      <div class="progress"><i id="monthBar"></i></div>
+      <div class="muted" id="monthHint"></div>
+    </article>
+
+    <article class="card">
+      <h3>👋 极简问候</h3>
+      <div class="quote" id="miniGreeting">今天也要加油呀</div>
+      <button class="btn primary" id="changeGreeting">换一句</button>
+    </article>
+
+    <article class="card">
+      <h3>💬 极简名言</h3>
+      <div class="quote" id="quoteBox">“先完成，再完美。”</div>
+      <button class="btn primary" id="nextQuote">换一句</button>
+    </article>
+
+    <article class="card wide">
+      <h3>🔢 水平导航</h3>
+      <div class="nav">
+        <a href="#" onclick="return false">📚 学习</a>
+        <a href="#" onclick="return false">📝 日记</a>
+        <a href="#" onclick="return false">✅ 待办</a>
+        <a href="#" onclick="return false">🎯 目标</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>⏳ 极简倒计时</h3>
+      <div class="center">
+        <div>
+          <div class="time" id="yearLeft"></div>
+          <div class="muted">距离今年结束</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>📅 极简日历</h3>
+      <div class="mini-cal" id="miniCal"></div>
+    </article>
+
+    <article class="card">
+      <h3>🌤️ 天气展示卡</h3>
+      <div class="weather">
+        <div>
+          <div class="muted">中国 · 北京</div>
+          <div class="temp"><span id="tempText">22</span>°C</div>
+        </div>
+        <div class="sun">☀️</div>
+      </div>
+      <input id="tempRange" type="range" min="-10" max="40" value="22">
+    </article>
+
+    <article class="card">
+      <h3>🎀 CTA按钮</h3>
+      <div class="cta">评论「元五七」免费获取</div>
+    </article>
+  </div>
+
+  <hr class="divider">
+  <div class="work-note">下面接 Notion 原生工作区：今日待办 / 习惯打卡 / 阅读清单 / 月度目标 / 复盘区</div>
+</section>
+
+<script>
+const $=id=>document.getElementById(id),pad=n=>String(n).padStart(2,'0'),weekCN=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+let viewDate=new Date(),selectedDate=new Date();
+function renderCalendar(){
+  const y=viewDate.getFullYear(),m=viewDate.getMonth(),today=new Date(),grid=$('calendarGrid');
+  $('monthTitle').textContent=`${y}年${m+1}月`;grid.innerHTML='';
+  ['日','一','二','三','四','五','六'].forEach(w=>{let b=document.createElement('b');b.textContent=w;grid.appendChild(b)});
+  for(let i=0;i<new Date(y,m,1).getDay();i++)grid.appendChild(document.createElement('span'));
+  for(let d=1;d<=new Date(y,m+1,0).getDate();d++){
+    let btn=document.createElement('button');btn.className='day';btn.textContent=d;
+    if(y===today.getFullYear()&&m===today.getMonth()&&d===today.getDate())btn.classList.add('today');
+    if(y===selectedDate.getFullYear()&&m===selectedDate.getMonth()&&d===selectedDate.getDate())btn.classList.add('selected');
+    btn.onclick=()=>{selectedDate=new Date(y,m,d);$('selectedDateText').textContent=`已选中：${y}年${m+1}月${d}日`;renderCalendar()};
+    grid.appendChild(btn)
+  }
+}
+$('prevMonth').onclick=()=>{viewDate.setMonth(viewDate.getMonth()-1);renderCalendar()};
+$('nextMonth').onclick=()=>{viewDate.setMonth(viewDate.getMonth()+1);renderCalendar()};
+function updateClock(){
+  const d=new Date(),h=d.getHours();
+  $('greeting').textContent=h<6?'夜深啦':h<12?'早上好':h<18?'下午好':'晚上好';
+  $('nowTime').textContent=`${pad(h)}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+  $('nowDate').textContent=`${d.getMonth()+1}月${d.getDate()}日 ${weekCN[d.getDay()]}`;
+}
+function updateCountdown(){
+  const now=new Date(),end=new Date(now.getFullYear(),now.getMonth()+1,0,23,59,59),start=new Date(now.getFullYear(),now.getMonth(),1);
+  let diff=Math.max(0,end-now),d=Math.floor(diff/86400000);diff%=86400000;
+  let h=Math.floor(diff/3600000);diff%=3600000;let m=Math.floor(diff/60000);diff%=60000;let s=Math.floor(diff/1000);
+  $('cdDay').textContent=d;$('cdHour').textContent=pad(h);$('cdMin').textContent=pad(m);$('cdSec').textContent=pad(s);
+  let pct=Math.round((now-start)/(end-start)*100);$('monthBar').style.width=pct+'%';$('monthHint').textContent=`本月进度 ${pct}%`;
+  $('yearLeft').textContent=Math.ceil((new Date(now.getFullYear(),11,31,23,59,59)-now)/86400000)+'天';
+}
+const greetings=['今天也要加油呀','打开 Notion 就想学习','慢慢来，比较快','元五七陪你整理生活','今天也很适合变优秀'];let gi=0;
+$('changeGreeting').onclick=()=>{gi=(gi+1)%greetings.length;$('miniGreeting').textContent=greetings[gi]};
+const quotes=['“先完成，再完美。”','“把小事做好，就是很厉害的事。”','“今天也要温柔且坚定。”','“专注当下，生活会慢慢变好。”'];let qi=0;
+$('nextQuote').onclick=()=>{qi=(qi+1)%quotes.length;$('quoteBox').textContent=quotes[qi]};
+$('tempRange').oninput=()=>$('tempText').textContent=$('tempRange').value;
+function renderMiniCal(){
+  const d=new Date(),days=new Date(d.getFullYear(),d.getMonth()+1,0).getDate(),box=$('miniCal');box.innerHTML='';
+  for(let i=1;i<=days;i++){let s=document.createElement('span');s.textContent=i;if(i===d.getDate())s.className='on';box.appendChild(s)}
+}
+renderCalendar();renderMiniCal();updateClock();updateCountdown();setInterval(updateClock,1000);setInterval(updateCountdown,1000);
+</script>
+</body>
+</html>
