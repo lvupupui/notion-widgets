@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>🌍 多语言问候</title>
+<style>
+:root{
+  --bg1:#FFE2EF;--bg2:#F6E7FF;--bg3:#FFF7EF;
+  --pink:#FF6B9D;--pink2:#FF9BC2;--purple:#7B4BA3;--purple2:#A987E8;
+  --yellow:#FFD66B;--mint:#E6FAF1;--blue:#DDF4FF;
+  --card:rgba(255,255,255,.86);--text:#4B2B68;--muted:#8B6AA6;--line:rgba(255,255,255,.92);
+  --shadow:0 18px 44px rgba(123,75,163,.16),0 8px 18px rgba(255,107,157,.12);
+  --r:28px;--pill:999px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"PingFang SC","Microsoft YaHei",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);}
+body{padding:18px;background:radial-gradient(circle at 8% 8%,rgba(255,255,255,.75) 0 8%,transparent 22%),radial-gradient(circle at 90% 12%,rgba(255,214,107,.26) 0 8%,transparent 24%),linear-gradient(180deg,var(--bg1),var(--bg2) 52%,var(--bg3));}
+.wrap{max-width:860px;margin:0 auto;}
+.widget{position:relative;background:rgba(255,255,255,.62);border:3px solid var(--line);border-radius:36px;box-shadow:var(--shadow);backdrop-filter:blur(12px);padding:22px;overflow:hidden;}
+.widget:before{content:"";position:absolute;inset:10px;border:2px dashed rgba(255,107,157,.16);border-radius:28px;pointer-events:none;}
+h1,h2,h3,p{position:relative;z-index:1}
+h1{font-size:clamp(30px,7vw,58px);line-height:1.05;margin:0 0 12px;color:var(--purple);font-weight:950;text-align:center;text-shadow:3px 3px 0 #fff,-3px 3px 0 #fff,0 10px 22px rgba(123,75,163,.16)}
+h2{font-size:28px;margin:0 0 14px;color:var(--purple);font-weight:950}
+h3{font-size:20px;margin:0 0 10px;color:var(--purple);font-weight:950}
+.sub{text-align:center;font-weight:850;color:var(--muted);margin:0 0 18px}
+.card{position:relative;z-index:1;background:var(--card);border:2px solid var(--line);border-radius:24px;box-shadow:0 10px 26px rgba(123,75,163,.12);padding:18px;margin:12px 0;}
+.grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.row{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.btn{border:0;border-radius:var(--pill);padding:10px 16px;font-weight:950;color:var(--purple);background:#fff;border:2px solid rgba(255,107,157,.22);box-shadow:0 6px 12px rgba(255,107,157,.12);cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,var(--pink),#FFC0D9);color:#fff;border-color:#fff}
+input,select,textarea{width:100%;border:2px solid #F2D8F0;border-radius:16px;padding:11px 13px;background:#fff;color:var(--text);outline:none;font:inherit;font-weight:800}
+textarea{min-height:120px;resize:vertical;line-height:1.5}
+small,.hint{color:var(--muted);font-weight:800;font-size:13px}
+.big{font-size:clamp(38px,8vw,72px);font-weight:950;color:var(--purple);font-variant-numeric:tabular-nums;text-align:center}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border-radius:var(--pill);background:#fff;border:2px solid rgba(255,255,255,.95);box-shadow:0 6px 14px rgba(123,75,163,.09);font-weight:900;color:var(--purple)}
+.progress{height:16px;background:#F4DDF0;border-radius:var(--pill);overflow:hidden;border:1px solid var(--line)}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--pink2));border-radius:var(--pill)}
+a{text-decoration:none;color:inherit}
+@media(max-width:620px){body{padding:10px}.widget{padding:16px;border-radius:28px}.grid{grid-template-columns:1fr 1fr}}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="widget">
+    <h1>🌍 多语言问候</h1>
+    <p class="sub">中英日韩多语言问候自动切换。</p>
+    <div class="card" style="text-align:center"><div class="big" id="g"></div><p class="hint" id="lang"></p></div>
+  </section>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const pad=n=>String(n).padStart(2,'0');
+
+const gs=[['早上好','中文'],['Good Morning','English'],['おはよう','日本語'],['안녕하세요','한국어']];let i=0;function sw(){$('g').textContent=gs[i][0];$('lang').textContent=gs[i][1];i=(i+1)%gs.length}sw();setInterval(sw,2500);
+
+</script>
+</body>
+</html>
