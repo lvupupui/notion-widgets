@@ -1,0 +1,23 @@
+{
+  "name": "元五七存钱计划小管家",
+  "short_name": "元五七存钱",
+  "description": "元五七粉色存钱计划手机小工具",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FFE3EF",
+  "theme_color": "#FF8DB8",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
