@@ -1,0 +1,41 @@
+元五七每日习惯打卡器_手机App版_V2_品牌整合版
+
+这是在“手机App版”基础上的品牌整合版。
+
+本次重点不是增加功能，而是把元五七品牌和桌面图标真正落地。
+
+新增 / 优化：
+1. 使用正式粉色元五七图标作为产品 Logo。
+2. 生成 apple-touch-icon.png、icon-192.png、icon-512.png、favicon.png。
+3. 增加 manifest.webmanifest。
+4. HTML 里加入 apple-touch-icon、favicon、manifest 配置。
+5. 页面顶部使用正式 Logo，不再只是“元”字占位。
+6. 首页右上增加品牌贴纸感 Logo。
+7. 设置页增加“关于元五七”品牌卡片。
+8. 设置页重新整理“添加到手机桌面”步骤。
+9. 视觉增加粉色玻璃感和小 App 质感。
+10. 仍然保留单文件使用能力：即使只打开 HTML，页面内 Logo 也能显示。
+
+文件说明：
+- 元五七每日习惯打卡器_手机App版_V2_品牌整合版.html
+- manifest.webmanifest
+- icons/apple-touch-icon.png
+- icons/icon-192.png
+- icons/icon-512.png
+- icons/favicon.png
+
+重要说明：
+如果只是本地双击 HTML，页面可以正常使用，页面内 Logo 也能显示。
+如果要让手机“添加到主屏幕”时稳定显示正式图标，建议保持 HTML、manifest.webmanifest、icons 文件夹在同一目录，或者上传到同一个公网目录。
+
+手机添加桌面：
+iPhone：
+Safari 打开页面 → 分享 → 添加到主屏幕。
+
+安卓：
+Chrome / Edge 打开页面 → 菜单 → 添加到主屏幕。
+
+数据：
+数据保存在当前浏览器 localStorage。
+换设备、换浏览器、清缓存可能丢失。
+重要数据请导出备份。
