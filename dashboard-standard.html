@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>标准版｜粉色自律手账工作台｜整齐版</title>
+<style>
+:root{
+  --bg1:#FFE2EF;--bg2:#F7E8FF;--bg3:#FFF8F3;--card:#fff;--text:#4B2B68;--muted:#8B6AA6;
+  --pink:#FF6B9D;--pink2:#FFC0D9;--purple:#7B4BA3;--line:#F3D8EA;--yellow:#FFD66B;
+  --shadow:0 14px 34px rgba(123,75,163,.14),0 8px 18px rgba(255,107,157,.10);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:var(--text)}
+body{background:linear-gradient(135deg,var(--bg1),var(--bg2) 60%,var(--bg3));padding:0}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+.shell{position:relative;overflow:hidden;width:100%;min-height:100vh;padding:14px}
+.shell:before{
+  content:"";position:absolute;inset:-90px;
+  background:
+  radial-gradient(circle at 10% 13%,rgba(255,255,255,.86),transparent 20%),
+  radial-gradient(circle at 86% 9%,rgba(255,214,107,.28),transparent 18%),
+  radial-gradient(circle at 80% 84%,rgba(255,107,157,.15),transparent 22%);
+  pointer-events:none;
+}
+.cardwrap{
+  position:relative;z-index:1;max-width:1360px;margin:0 auto;border-radius:32px;
+  background:rgba(255,255,255,.70);border:3px solid rgba(255,255,255,.96);
+  box-shadow:var(--shadow);padding:14px;
+}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.titlebox{display:flex;align-items:center;gap:12px;min-width:0}
+.avatar{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--pink),#A987E8);color:#fff;font-weight:950;border:3px solid #fff;box-shadow:0 8px 18px rgba(123,75,163,.12);flex:0 0 auto}
+.titlebox b{font-size:28px;color:var(--purple);letter-spacing:1px;white-space:nowrap}
+.titlebox span{display:block;color:var(--muted);font-weight:850;font-size:13px}
+.badge{padding:9px 14px;border-radius:999px;background:#fff;color:var(--pink);font-weight:950;box-shadow:0 8px 18px rgba(123,75,163,.08)}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  grid-auto-flow:row;
+}
+.widget{
+  position:relative;overflow:hidden;min-height:150px;border-radius:22px;background:#fff;
+  border:2px solid rgba(255,255,255,.96);box-shadow:0 8px 18px rgba(123,75,163,.10);padding:12px;
+}
+.widget h3{margin:0 0 8px;color:var(--purple);font-size:15px;white-space:nowrap}
+.center{height:calc(100% - 28px);display:grid;place-items:center;text-align:center}
+.time{font-size:34px;color:var(--pink);font-weight:950;font-variant-numeric:tabular-nums;line-height:1}
+.bigtext{font-size:24px;color:var(--purple);font-weight:950}
+.muted{font-size:12px;color:var(--muted);font-weight:850}
+.quote{font-size:18px;line-height:1.38;color:var(--purple);font-weight:950;text-align:center}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center}
+.cal b{font-size:10px;color:var(--muted)}
+.cal span{min-height:18px;display:grid;place-items:center;border-radius:7px;background:#FFF7FB;font-size:10px;font-weight:850}
+.cal .on{background:linear-gradient(135deg,var(--pink),var(--pink2));color:#fff}
+.counts{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.count{text-align:center;padding:8px 4px;border-radius:13px;background:#FFF7FB;border:1px solid #FFE0EF}
+.count b{display:block;font-size:20px;color:var(--purple);font-variant-numeric:tabular-nums}
+.progress,.goalbar{height:10px;border-radius:999px;background:#F4DDF0;overflow:hidden;margin-top:8px}
+.progress i,.goalbar i{display:block;height:100%;background:linear-gradient(90deg,var(--pink),var(--pink2))}
+.weather{display:flex;align-items:center;justify-content:space-between}.temp{font-size:38px;font-weight:950;color:var(--purple)}.sun{font-size:48px}
+.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.nav span{min-height:50px;border-radius:15px;background:#FFF7FB;border:1px solid #FFE0EF;display:grid;place-items:center;font-weight:950;font-size:13px}
+.btn{border:0;border-radius:999px;padding:8px 13px;background:linear-gradient(90deg,var(--pink),var(--pink2));color:#fff;font-weight:950;box-shadow:0 8px 18px rgba(255,107,157,.18)}
+.btn.ghost{background:#FFF0F6;color:var(--purple);border:2px solid #FFD6E7;box-shadow:none}
+.pomo{display:grid;place-items:center;gap:8px}
+.pomo .pomo-time{font-size:38px;color:var(--pink);font-weight:950}
+.row{display:flex;gap:7px;align-items:center;justify-content:center;flex-wrap:wrap}
+.habits{display:grid;gap:6px}
+.habits label{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:850;color:var(--text)}
+.habits input{accent-color:var(--pink)}
+.notearea{
+  width:100%;min-height:82px;resize:none;border:2px dashed #FFD3E4;border-radius:16px;
+  padding:10px;background:#FFF9FC;color:var(--text);outline:none;
+}
+.goals{display:grid;gap:8px}
+.goal-line{display:flex;align-items:center;gap:8px}
+.goal-line input[type="checkbox"]{accent-color:var(--pink)}
+.goal-line input[type="text"]{flex:1;min-width:0;border:0;border-bottom:2px solid #FFE0EF;background:transparent;color:var(--text);outline:none;font-weight:850;font-size:13px}
+.reading-list,.morning-list{display:grid;gap:6px}
+.pill{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border-radius:14px;background:#FFF7FB;border:1px solid #FFE0EF;font-size:13px;font-weight:850}
+.budget-row{display:flex;justify-content:space-between;font-size:13px;font-weight:850;color:var(--muted);margin-bottom:6px}
+.range{width:100%;accent-color:var(--pink)}
+.mood-row{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
+.mood{border:0;border-radius:16px;background:#FFF7FB;border:2px solid #FFE0EF;min-height:48px;font-size:24px}
+.mood.active{background:linear-gradient(135deg,#FFF0F6,#FFD5E6);border-color:var(--pink)}
+.cta{min-height:74px;display:grid;place-items:center;text-align:center;border-radius:18px;background:linear-gradient(90deg,var(--pink),var(--pink2));color:#fff;font-size:17px;font-weight:950;border:3px solid #fff}
+.corner{position:absolute;right:14px;bottom:10px;color:rgba(123,75,163,.30);font-size:11px;font-weight:950;z-index:2}
+.footer{text-align:center;color:var(--muted);font-size:12px;font-weight:850;margin-top:8px}
+@media(max-width:1080px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){
+  .shell{padding:8px}.grid{grid-template-columns:1fr}
+  .titlebox b{font-size:22px}.badge{font-size:12px}
+}
+</style>
+</head>
+<body>
+<section class="shell">
+  <div class="cardwrap">
+    <div class="top">
+      <div class="titlebox">
+        <div class="avatar">🌸</div>
+        <div>
+          <b id="mainTitle">我的粉色自律工作台</b>
+          <span id="subTitle">标准版固定成品 · 可改成自己的名字</span>
+        </div>
+      </div>
+      <div class="badge">今日也要慢慢变好</div>
+    </div>
+
+    <div class="grid">
+      <article class="widget">
+        <h3>📅 中文日历</h3>
+        <div class="cal" data-cal></div>
+      </article>
+
+      <article class="widget">
+        <h3>⏰ 问候时钟</h3>
+        <div class="center"><div><div class="bigtext" data-greet>下午好</div><div class="time" data-clock>--:--:--</div><div class="muted" data-date></div></div></div>
+      </article>
+
+      <article class="widget">
+        <h3>💬 每日一言</h3>
+        <div class="center"><div class="quote" data-daily-quote>“先完成，再完美。”</div></div>
+      </article>
+
+      <article class="widget">
+        <h3>⏳ 本月剩余</h3>
+        <div class="counts">
+          <div class="count"><b data-md>--</b><span>天</span></div>
+          <div class="count"><b data-mh>--</b><span>时</span></div>
+          <div class="count"><b data-mm>--</b><span>分</span></div>
+          <div class="count"><b data-ms>--</b><span>秒</span></div>
+        </div>
+        <div class="progress"><i data-bar></i></div>
+        <div class="muted" data-monthhint></div>
+      </article>
+
+      <article class="widget">
+        <h3>🍅 番茄钟</h3>
+        <div class="pomo"><div class="pomo-time" id="pomoTime">25:00</div><div class="row"><button class="btn" id="pomoStart">开始</button><button class="btn ghost" id="pomoReset">重置</button></div></div>
+      </article>
+
+      <article class="widget">
+        <h3>👋 今日问候</h3>
+        <div class="center"><div class="quote" data-daily-greeting>今天也要加油呀</div></div>
+      </article>
+
+      <article class="widget">
+        <h3>🎀 适用场景</h3>
+        <div class="nav"><span>📚 学习</span><span>📝 手账</span><span>✅ 打卡</span><span>🌙 复盘</span></div>
+      </article>
+
+      <article class="widget">
+        <h3>🎯 今日小目标</h3>
+        <div class="goals">
+          <label class="goal-line"><input type="checkbox" data-store="goal1"><input type="text" data-store-text="goalText1" value="完成一件重要小事"></label>
+          <label class="goal-line"><input type="checkbox" data-store="goal2"><input type="text" data-store-text="goalText2" value="整理今天的计划"></label>
+          <label class="goal-line"><input type="checkbox" data-store="goal3"><input type="text" data-store-text="goalText3" value="睡前复盘 5 分钟"></label>
+        </div>
+      </article>
+
+      <article class="widget">
+        <h3>✅ 习惯打卡</h3>
+        <div class="habits">
+          <label><input type="checkbox" data-store="habitWater"> 喝水</label>
+          <label><input type="checkbox" data-store="habitStudy"> 学习 / 工作</label>
+          <label><input type="checkbox" data-store="habitMove"> 运动 / 拉伸</label>
+          <label><input type="checkbox" data-store="habitReview"> 晚间复盘</label>
+        </div>
+      </article>
+
+      <article class="widget">
+        <h3>📝 手账便签</h3>
+        <textarea class="notearea" data-store-text="journalNote" placeholder="今天想记录的小事……"></textarea>
+        <div class="muted">保存在当前浏览器。</div>
+      </article>
+
+      <article class="widget">
+        <h3>📊 目标进度</h3>
+        <div class="bigtext"><span id="progressText">72</span>%</div>
+        <input class="range" id="progressRange" type="range" min="0" max="100" value="72">
+        <div class="goalbar"><i id="progressBar" style="width:72%"></i></div>
+        <div class="muted">本周目标完成度</div>
+      </article>
+
+      <article class="widget">
+        <h3>🌤️ 天气展示卡</h3>
+        <div class="weather"><div><div class="muted">中国 · 北京</div><div class="temp">22°C</div><div class="muted">晴朗｜空气优</div></div><div class="sun">☀️</div></div>
+      </article>
+
+      <article class="widget">
+        <h3>📚 阅读清单</h3>
+        <div class="reading-list">
+          <div class="pill"><span>《慢慢变好》</span><span>35%</span></div>
+          <div class="pill"><span>《自律手账》</span><span>待读</span></div>
+          <div class="pill"><span>《整理生活》</span><span>12%</span></div>
+        </div>
+      </article>
+
+      <article class="widget">
+        <h3>🌅 晨间流程</h3>
+        <div class="morning-list">
+          <div class="pill"><span>☀️ 喝水</span><span>3 min</span></div>
+          <div class="pill"><span>📌 写计划</span><span>5 min</span></div>
+          <div class="pill"><span>🍅 专注</span><span>25 min</span></div>
+        </div>
+      </article>
+
+      <article class="widget">
+        <h3>💰 月预算</h3>
+        <div class="budget-row"><span>预算使用</span><span id="budgetText">46%</span></div>
+        <input class="range" id="budgetRange" type="range" min="0" max="100" value="46">
+        <div class="progress"><i id="budgetBar" style="width:46%"></i></div>
+        <div class="muted">轻量展示。</div>
+      </article>
+
+      <article class="widget">
+        <h3>😊 今日心情</h3>
+        <div class="mood-row">
+          <button class="mood">🌸</button><button class="mood">☁️</button><button class="mood">✨</button><button class="mood">🌙</button><button class="mood">🍀</button>
+        </div>
+      </article>
+    </div>
+
+    <div class="footer">标准版固定成品方案；Pro版开放自由搭配。轻量记录保存在当前浏览器，长期记录建议写入 Notion。</div>
+    <div class="corner">by 元五七</div>
+  </div>
+</section>
+
+<script>
+const pad=n=>String(n).padStart(2,"0");
+const quotes=[
+"“先完成，再完美。”","“把小事做好，就是很厉害的事。”","“慢慢来，也是向前走。”","“今天的一点点，会成为明天的底气。”",
+"“生活需要计划，也需要温柔。”","“把今天过好，就是最好的进度。”","“记录不是负担，是给生活留灯。”","“稳定就是力量。”",
+"“认真生活的人会发光。”","“把喜欢的生活一点点搭出来。”","“先行动，答案会慢慢出现。”","“少一点比较，多一点专注。”",
+"“完成比想象更能带来力量。”","“今天也请站在自己这边。”","“越清楚，越自由。”","“把复杂的事拆成简单的一步。”",
+"“自律不是逼迫，是选择更好的自己。”","“你不需要很厉害才开始。”","“生活会奖励认真整理的人。”","“愿你今天有光，也有方向。”",
+"“把时间花在让自己变好的事情上。”","“今天的努力不会白费。”","“保持热爱，也保持节奏。”","“先把今天安排好。”",
+"“温柔不是松散，是有秩序地爱自己。”","“不要急，稳定就是力量。”","“小目标也有大意义。”","“一点点完成就很好。”",
+"“清醒一点，温柔一点，坚定一点。”","“愿你拥有轻盈的一天。”"
+];
+const greetings=[
+"今天也要加油呀","慢慢来，比较快","把小事做好也很厉害","今天适合变优秀","愿你今天也被温柔以待",
+"先完成一点点就很好","保持节奏，不用着急","今天也要认真生活","把注意力放回自己身上","小小进步也值得记录",
+"别怕慢，只怕停","今天也要闪闪发光","给自己一点耐心","温柔一点，也坚定一点","把计划变成行动",
+"今天也要照顾好自己","记录生活，留住元气","清清爽爽开始今天","不要焦虑，先开始","今天的你也很棒",
+"专注当下，慢慢变好","让今天比昨天清楚一点","认真生活的人会发光","小小目标也值得庆祝","愿今天顺顺利利",
+"把生活整理成喜欢的样子","慢慢完成，慢慢变好","今天也请善待自己","愿你拥有好心情","开始就已经很棒"
+];
+function dayIndex(len){const now=new Date(),start=new Date(now.getFullYear(),0,0);return Math.floor((now-start)/86400000)%len}
+function drawCal(){
+  document.querySelectorAll("[data-cal]").forEach(el=>{
+    const d=new Date(),y=d.getFullYear(),m=d.getMonth(),today=d.getDate();
+    el.innerHTML=["日","一","二","三","四","五","六"].map(w=>`<b>${w}</b>`).join("");
+    for(let i=0;i<new Date(y,m,1).getDay();i++) el.innerHTML+="<span></span>";
+    for(let i=1;i<=new Date(y,m+1,0).getDate();i++) el.innerHTML+=`<span class="${i===today?'on':''}">${i}</span>`;
+  });
+}
+function tick(){
+  const d=new Date(),h=d.getHours();
+  document.querySelectorAll("[data-clock]").forEach(el=>el.textContent=`${pad(h)}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`);
+  document.querySelectorAll("[data-date]").forEach(el=>el.textContent=`${d.getMonth()+1}月${d.getDate()}日`);
+  document.querySelectorAll("[data-greet]").forEach(el=>el.textContent=h<12?"早上好":h<18?"下午好":"晚上好");
+  const end=new Date(d.getFullYear(),d.getMonth()+1,0,23,59,59),start=new Date(d.getFullYear(),d.getMonth(),1);
+  let diff=Math.max(0,end-d),dd=Math.floor(diff/86400000); diff%=86400000;
+  let hh=Math.floor(diff/3600000); diff%=3600000; let mm=Math.floor(diff/60000); diff%=60000; let ss=Math.floor(diff/1000);
+  document.querySelectorAll("[data-md]").forEach(el=>el.textContent=dd);
+  document.querySelectorAll("[data-mh]").forEach(el=>el.textContent=pad(hh));
+  document.querySelectorAll("[data-mm]").forEach(el=>el.textContent=pad(mm));
+  document.querySelectorAll("[data-ms]").forEach(el=>el.textContent=pad(ss));
+  const pct=Math.round((d-start)/(end-start)*100);
+  document.querySelectorAll("[data-bar]").forEach(el=>el.style.width=pct+"%");
+  document.querySelectorAll("[data-monthhint]").forEach(el=>el.textContent=`本月进度 ${pct}%`);
+}
+function initDaily(){
+  document.querySelectorAll("[data-daily-quote]").forEach(el=>el.textContent=quotes[dayIndex(quotes.length)]);
+  document.querySelectorAll("[data-daily-greeting]").forEach(el=>el.textContent=greetings[dayIndex(greetings.length)]);
+}
+let pomoRemain=25*60,pomoTimer=null,pomoRunning=false;
+function drawPomo(){document.getElementById("pomoTime").textContent=`${pad(Math.floor(pomoRemain/60))}:${pad(pomoRemain%60)}`}
+document.getElementById("pomoStart").onclick=()=>{
+  pomoRunning=!pomoRunning;document.getElementById("pomoStart").textContent=pomoRunning?"暂停":"开始";
+  if(pomoRunning){pomoTimer=setInterval(()=>{pomoRemain=Math.max(0,pomoRemain-1);drawPomo();if(pomoRemain===0){clearInterval(pomoTimer);pomoRunning=false;document.getElementById("pomoStart").textContent="完成"}},1000)}
+  else clearInterval(pomoTimer);
+};
+document.getElementById("pomoReset").onclick=()=>{clearInterval(pomoTimer);pomoRunning=false;pomoRemain=25*60;drawPomo();document.getElementById("pomoStart").textContent="开始"};
+function storeKey(k){return "y57-standard-"+new Date().toISOString().slice(0,10)+"-"+k}
+document.querySelectorAll("[data-store]").forEach(el=>{const k=storeKey(el.dataset.store);el.checked=localStorage.getItem(k)==="1";el.onchange=()=>localStorage.setItem(k,el.checked?"1":"0")});
+document.querySelectorAll("[data-store-text]").forEach(el=>{const k="y57-standard-text-"+el.dataset.storeText,old=localStorage.getItem(k);if(old!==null)el.value=old;el.oninput=()=>localStorage.setItem(k,el.value)});
+function bindRange(id,text,bar){const r=document.getElementById(id),t=document.getElementById(text),b=document.getElementById(bar);r.oninput=()=>{t.textContent=r.value+"%";b.style.width=r.value+"%"}}
+bindRange("progressRange","progressText","progressBar");bindRange("budgetRange","budgetText","budgetBar");
+document.querySelectorAll(".mood").forEach(btn=>btn.onclick=()=>{document.querySelectorAll(".mood").forEach(b=>b.classList.remove("active"));btn.classList.add("active");localStorage.setItem("y57-standard-mood",btn.textContent)});
+const mood=localStorage.getItem("y57-standard-mood");if(mood){[...document.querySelectorAll(".mood")].find(b=>b.textContent===mood)?.classList.add("active")}
+const p=new URLSearchParams(location.search);
+if(p.get("title")) document.getElementById("mainTitle").textContent=p.get("title");
+if(p.get("subtitle")) document.getElementById("subTitle").textContent=p.get("subtitle");
+drawCal();initDaily();drawPomo();tick();setInterval(tick,1000);
+</script>
+</body>
+</html>
