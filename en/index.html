@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Habit Tracker + Savings Tracker — Bundle</title>
+<style>
+:root{--bg1:#FFE2EF;--bg2:#F6E7FF;--pink:#FF6B9D;--purple:#7B4BA3;--text:#4B2B68;--muted:#8B6AA6;--card:#fff;--shadow:0 12px 32px rgba(123,75,163,.12)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,sans-serif;color:var(--text)}
+body{display:grid;place-items:center;min-height:100dvh;padding:20px;background:radial-gradient(circle at 10% 8%,rgba(255,255,255,.85) 0 7%,transparent 20%),radial-gradient(circle at 90% 12%,rgba(255,214,107,.25) 0 8%,transparent 23%),linear-gradient(180deg,var(--bg1),var(--bg2))}
+.card{background:var(--card);border-radius:28px;padding:32px 28px;max-width:480px;width:100%;text-align:center;box-shadow:var(--shadow);border:2px solid rgba(255,255,255,.95)}
+h1{font-size:28px;color:var(--purple);margin:0 0 6px;font-weight:950}
+p{color:var(--muted);font-size:15px;margin:0 0 24px}
+.btns{display:flex;flex-direction:column;gap:12px}
+.btn{display:block;padding:16px 20px;border-radius:18px;font-weight:800;font-size:16px;text-decoration:none;transition:all .2s}
+.btn-habit{background:linear-gradient(135deg,#FF8DB8,#FF6B9D);color:#fff;box-shadow:0 6px 20px rgba(255,107,157,.25)}
+.btn-save{background:linear-gradient(135deg,#8B6DDB,#C8A7FF);color:#fff;box-shadow:0 6px 20px rgba(139,109,219,.25)}
+.btn:hover{transform:translateY(-2px)}
+.emoji{font-size:28px;display:block;margin-bottom:4px}
+small{display:block;margin-top:24px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>Your Bundle</h1>
+<p>Tap to open each app — both work offline, no login needed.</p>
+<div class="btns">
+<a class="btn btn-habit" href="habit/"><span class="emoji">🌸</span>Daily Habit Tracker</a>
+<a class="btn btn-save" href="saving/"><span class="emoji">💰</span>Savings Goal Tracker</a>
+</div>
+<small>Add to your phone home screen for app-like experience.<br>Lifetime updates included.</small>
+</div>
+</body>
+</html>
