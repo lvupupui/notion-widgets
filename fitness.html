@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>元五七 · 30天元气运动自律系统 Standard</title>
+<style>
+:root{
+  --pink:#ef7894;
+  --pink2:#f7a5b8;
+  --pink3:#ffe8ee;
+  --soft:#fff7f4;
+  --cream:#fffaf4;
+  --green:#eef7e9;
+  --blue:#eef7fb;
+  --purple:#f5eefb;
+  --orange:#fff0df;
+  --black:#171717;
+  --text:#3b3333;
+  --muted:#8b7c7c;
+  --line:#f2d8dd;
+  --card:#ffffffd9;
+  --shadow:0 16px 46px rgba(185,102,122,.16);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 8% 2%, rgba(239,120,148,.18), transparent 25%),
+    radial-gradient(circle at 95% 0%, rgba(255,221,190,.34), transparent 26%),
+    linear-gradient(180deg,#fffaf7 0%,#fff3f4 46%,#fffaf7 100%);
+}
+.page{max-width:1480px;margin:0 auto;padding:28px 30px 48px}
+.hero{
+  min-height:520px;
+  display:grid;
+  grid-template-columns: 40% 60%;
+  gap:24px;
+  align-items:center;
+  position:relative;
+}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.logo{
+  width:46px;height:46px;border-radius:50%;
+  background:linear-gradient(135deg,#ffd7df,#f28ca4);
+  display:grid;place-items:center;color:white;font-weight:900;font-size:22px;
+}
+.brand b{font-size:22px;letter-spacing:4px}.brand span{font-size:11px;letter-spacing:5px;font-weight:900;color:#111}
+h1{font-size:58px;line-height:1.06;margin:0 0 14px;letter-spacing:-2px;color:#111}
+h1 .pink{color:var(--pink)}
+.subtitle{font-size:22px;line-height:1.55;margin:0 0 20px;color:#222;font-weight:600}
+.ribbon{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:linear-gradient(90deg,#ef7894,#f38ba3);
+  color:white;border-radius:7px;padding:12px 42px;
+  font-size:21px;font-weight:800;margin:4px 0 20px;
+  box-shadow:0 12px 25px rgba(239,120,148,.24)
+}
+.feature-icons{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:560px;margin:0 0 22px}
+.icon-card{
+  background:white;border:1px solid var(--line);border-radius:10px;
+  min-height:92px;padding:12px 8px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.04)
+}
+.icon{font-size:30px;color:var(--pink);height:36px}.icon-card b{display:block;font-size:14px;color:#111}.icon-card span{font-size:11px;color:#666}
+.points{display:grid;gap:10px;font-size:18px;font-weight:600}
+.points div:before{content:"✓";display:inline-grid;place-items:center;width:22px;height:22px;background:#f08ba2;color:white;border-radius:50%;font-size:14px;margin-right:10px}
+.scene{
+  position:absolute;right:41%;bottom:40px;width:300px;height:220px;opacity:.88;
+  background:
+    radial-gradient(ellipse at 52% 80%, rgba(214,164,142,.22), transparent 45%),
+    linear-gradient(180deg, transparent 0 55%, rgba(246,205,195,.32) 56% 100%);
+  pointer-events:none;
+}
+.mat{position:absolute;width:230px;height:28px;border-radius:50%;background:#e9b8b3;bottom:20px;left:25px;transform:rotate(-3deg)}
+.bottle{position:absolute;width:62px;height:172px;border-radius:24px 24px 18px 18px;background:linear-gradient(90deg,#f6d8d4,#fff8f5,#f2c6c0);right:18px;bottom:26px;box-shadow:inset 0 0 18px rgba(255,255,255,.8)}
+.bottle:before{content:"";position:absolute;width:35px;height:20px;background:#e8b7b3;border-radius:8px 8px 2px 2px;left:13px;top:-16px}
+.bottle:after{content:"7am\A 9am\A 11am\A 1pm\A 3pm\A 5pm";white-space:pre;position:absolute;color:white;font-size:10px;line-height:22px;left:16px;top:28px;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.laptop{
+  background:#050505;border-radius:18px;padding:16px 16px 22px;box-shadow:0 28px 60px rgba(0,0,0,.25);
+}
+.screen{
+  background:linear-gradient(180deg,#fffafa,#fff5f2);border-radius:8px;padding:20px;min-height:470px;display:grid;grid-template-columns:120px 1fr 190px;gap:16px;
+}
+.sidebar{display:flex;flex-direction:column;gap:9px;font-size:12px}
+.side-logo{font-size:24px;color:var(--pink);margin:8px 0 18px}
+.side-item{padding:9px;border-radius:7px;color:#96777d;font-weight:800}
+.side-item.active{background:#ffe8ee;color:#d76880}
+.main-dash{display:flex;flex-direction:column;gap:14px}
+.dash-title{font-size:18px;font-weight:900;color:#111}
+.dash-title small{background:#111;color:white;border-radius:5px;font-size:10px;padding:2px 5px;margin-left:6px}
+.welcome{font-size:11px;color:#f08ba2;margin-top:-8px;font-weight:700}
+.block{background:white;border:1px solid #f0e4e4;border-radius:8px;padding:14px;box-shadow:0 8px 24px rgba(0,0,0,.035)}
+.plan-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.plan-mini{height:74px;border-radius:7px;padding:10px;font-weight:900;font-size:13px;position:relative;overflow:hidden}
+.plan-mini span{display:block;font-size:11px;color:#555;margin-top:5px}.a{background:#fff0e7}.b{background:#eef7e9}.c{background:#f5eff8}.d{background:#ffecef}.e{background:#fff2df}.f{background:#edf8f8}.g{background:#ffe8ef}.h{background:#f8eef3}
+.days{display:grid;grid-template-columns:repeat(10,1fr);gap:7px}
+.day{padding:7px 0;background:#faf6f5;border-radius:5px;text-align:center;font-weight:900;font-size:11px;border:1px solid #f0e4e4}
+.day.done{background:#f58aa1;color:white}.day.rest{background:#ffe4eb;color:#e16c85}.legend{display:flex;gap:18px;font-size:11px;color:#766;margin-top:12px}
+.legend i{display:inline-block;width:13px;height:13px;border-radius:3px;background:#faf6f5;border:1px solid #eee;margin-right:5px;vertical-align:-2px}.legend i.done{background:#f58aa1}.legend i.rest{background:#ffe4eb}
+.rightbar{display:flex;flex-direction:column;gap:12px}
+.date-card{height:74px;background:#ffe9ef;border-radius:8px;padding:13px;font-weight:900;color:#c95f76;position:relative;overflow:hidden}
+.task-list{font-size:12px;display:grid;gap:10px}.task-list b{display:inline-grid;place-items:center;width:18px;height:18px;background:#f6b2c0;color:#9d4356;border-radius:4px;margin-right:8px}
+.puzzle{height:110px;background:linear-gradient(135deg,#f4d1c2,#fff4ef);border-radius:8px;position:relative;overflow:hidden}
+.puzzle:before{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(255,255,255,.65) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.65) 1px,transparent 1px);background-size:36px 36px}
+.progress{height:7px;background:#ffd6df;border-radius:20px;overflow:hidden;margin-top:10px}.progress i{display:block;height:100%;width:66%;background:#ec7890;border-radius:20px}
+.section-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:18px}
+.card{
+  background:var(--card);border:1px solid rgba(255,255,255,.9);border-radius:8px;
+  box-shadow:var(--shadow);padding:18px;backdrop-filter:blur(10px)
+}
+.card h2{font-size:18px;margin:0 0 14px;color:#222}.heart{color:var(--pink);margin-right:6px}
+.col-4{grid-column:span 4}.col-3{grid-column:span 3}.col-6{grid-column:span 6}.col-8{grid-column:span 8}
+.big-plans{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.big-plan{border-radius:8px;min-height:110px;padding:16px;position:relative}
+.big-plan b{display:block;font-size:16px;color:#111}.big-plan span{display:block;color:#666;font-size:12px;line-height:1.6;margin-top:8px}
+.exec-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:8px}
+.exec-day{background:white;border:1px solid #f1e1e1;border-radius:6px;min-height:48px;padding:8px 4px;text-align:center;font-size:11px;font-weight:900}
+.exec-day small{display:block;margin-top:5px;color:#d88b9a}
+.data-box{display:grid;grid-template-columns:1fr 1.1fr;gap:12px}
+.form-list{display:grid;gap:8px;font-size:13px}.form-list div{background:white;border:1px solid #f1e1e1;border-radius:6px;padding:9px;color:#777}
+.chart{height:210px;background:white;border:1px solid #f1e1e1;border-radius:8px;position:relative;overflow:hidden}
+.chart:before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(239,120,148,.16),transparent 60%),linear-gradient(135deg,transparent 0 48%,rgba(239,120,148,.45) 49% 51%,transparent 52%);clip-path:polygon(0 70%,12% 66%,24% 74%,36% 54%,48% 60%,60% 42%,72% 50%,84% 28%,100% 36%,100% 100%,0 100%)}
+.donut{width:92px;height:92px;border-radius:50%;background:conic-gradient(#f08ba2 0 38%,#ffc275 38% 62%,#cde5bf 62% 82%,#ead5f3 82% 100%);margin:14px auto;position:relative}.donut:after{content:"";position:absolute;inset:20px;border-radius:50%;background:white}
+.list-check{display:grid;gap:8px;font-size:15px}.list-check div:before{content:"✓";color:var(--pink);font-weight:900;margin-right:8px}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:13px;line-height:1.8}.faq b{color:#111}
+.cta{display:flex;gap:12px;justify-content:center;margin-top:24px}
+button{
+  border:0;background:linear-gradient(90deg,#ef7894,#f496aa);color:white;font-weight:900;
+  padding:14px 32px;border-radius:8px;font-size:16px;box-shadow:0 12px 24px rgba(239,120,148,.24);cursor:pointer
+}
+button.secondary{background:white;color:#d4637a;border:1px solid var(--line)}
+@media(max-width:1000px){
+  .page{padding:18px 12px 34px}.hero{grid-template-columns:1fr}.scene{display:none}h1{font-size:42px}.subtitle{font-size:18px}.feature-icons{grid-template-columns:repeat(2,1fr)}
+  .laptop{padding:8px;border-radius:14px}.screen{grid-template-columns:1fr;min-height:unset}.sidebar,.rightbar{display:none}.plan-grid{grid-template-columns:repeat(2,1fr)}.days{grid-template-columns:repeat(5,1fr)}
+  .section-grid{grid-template-columns:1fr}.col-3,.col-4,.col-6,.col-8{grid-column:span 1}.big-plans{grid-template-columns:1fr 1fr}.exec-grid{grid-template-columns:repeat(5,1fr)}.data-box{grid-template-columns:1fr}.faq{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <section class="hero">
+    <div>
+      <div class="brand"><div class="logo">Y</div><div><b>元五七</b><br><span>YUAN57</span></div></div>
+      <h1><span class="pink">元五七</span> · 30天元气运动自律系统</h1>
+      <p class="subtitle">给运动小白和久坐人群的 Notion 风运动执行仪表盘</p>
+      <div class="ribbon">8 套计划任选，每天打开照着做</div>
+      <div class="feature-icons">
+        <div class="icon-card"><div class="icon">☑</div><b>8套计划</b><span>任选路线</span></div>
+        <div class="icon-card"><div class="icon">📅</div><b>30天周期</b><span>D01-D30</span></div>
+        <div class="icon-card"><div class="icon">♡</div><b>每日打卡</b><span>记录状态</span></div>
+        <div class="icon-card"><div class="icon">↗</div><b>每周复盘</b><span>调整节奏</span></div>
+        <div class="icon-card"><div class="icon">❖</div><b>成就拼图</b><span>激励完成</span></div>
+      </div>
+      <div class="points">
+        <div>不需要自己排计划，不需要纠结练什么</div>
+        <div>每次打开，都知道今天要做什么</div>
+        <div>记录训练、身体数据、心情状态</div>
+        <div>坚持 30 天，看见更好的自己</div>
+      </div>
+      <div class="scene"><div class="mat"></div><div class="bottle"></div></div>
+    </div>
+
+    <div class="laptop">
+      <div class="screen">
+        <aside class="sidebar">
+          <div class="side-logo">♥</div>
+          <div class="side-item active">首页</div><div class="side-item">计划中心</div><div class="side-item">今日训练</div><div class="side-item">打卡记录</div><div class="side-item">身体数据</div><div class="side-item">周复盘</div><div class="side-item">成就拼图</div><div class="side-item">使用指南</div>
+        </aside>
+        <main class="main-dash">
+          <div class="dash-title">元五七 · 30天元气运动自律系统 <small>STANDARD</small></div>
+          <div class="welcome">♥ Welcome back! 今天也要元气满满呀 🌸</div>
+          <div class="block">
+            <b>选择你的计划</b>
+            <div class="plan-grid" style="margin-top:12px">
+              <div class="plan-mini a">A<span>轻运动习惯</span></div><div class="plan-mini b">B<span>减脂目标</span></div><div class="plan-mini c">C<span>居家塑形</span></div><div class="plan-mini d">D<span>晨跑入门</span></div>
+              <div class="plan-mini e">E<span>久坐肩颈改善</span></div><div class="plan-mini f">F<span>体态改善</span></div><div class="plan-mini g">G<span>女生轻塑形</span></div><div class="plan-mini h">H<span>男生体能唤醒</span></div>
+            </div>
+          </div>
+          <div class="block">
+            <b>30天执行墙 · 计划B 减脂目标</b>
+            <div class="days" style="margin-top:12px">
+              <div class="day">D01</div><div class="day">D02</div><div class="day">D03</div><div class="day">D04</div><div class="day">D05</div><div class="day">D06</div><div class="day rest">D07</div><div class="day">D08</div><div class="day rest">D09</div><div class="day rest">D10</div>
+              <div class="day">D11</div><div class="day">D12</div><div class="day">D13</div><div class="day">D14</div><div class="day rest">D15</div><div class="day rest">D16</div><div class="day done">D17</div><div class="day done">D18</div><div class="day done">D19</div><div class="day done">D20</div>
+              <div class="day">D21</div><div class="day">D22</div><div class="day">D23</div><div class="day">D24</div><div class="day">D25</div><div class="day">D26</div><div class="day">D27</div><div class="day rest">D28</div><div class="day rest">D29</div><div class="day rest">D30</div>
+            </div>
+            <div class="legend"><span><i></i>未完成</span><span><i class="done"></i>已完成</span><span><i class="rest"></i>休息/恢复日</span></div>
+          </div>
+        </main>
+        <aside class="rightbar">
+          <div class="date-card">今天是<br><span style="font-size:18px">2024/05/20</span><br>周一</div>
+          <div class="block"><b>今日行动</b><div class="task-list" style="margin-top:12px"><div><b>1</b>进入今日训练</div><div><b>2</b>完成训练并打卡</div><div><b>3</b>记录身体数据</div><div><b>4</b>每周一次复盘</div></div><button style="width:100%;margin-top:14px;padding:10px">开始今日训练</button></div>
+          <div class="block"><b>成就拼图墙 20/30</b><div class="progress"><i></i></div><div class="puzzle" style="margin-top:10px"></div></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-grid">
+    <div class="card col-4">
+      <h2><span class="heart">♥</span>8 套 30 天运动计划</h2>
+      <div class="big-plans">
+        <div class="big-plan a"><b>🧘 轻运动习惯</b><span>建立运动习惯<br>从“动起来”开始</span></div>
+        <div class="big-plan b"><b>🧍 减脂目标</b><span>低冲击有氧<br>提升日常消耗</span></div>
+        <div class="big-plan c"><b>🪑 居家塑形</b><span>在家训练<br>塑造身体线条</span></div>
+        <div class="big-plan d"><b>🏃 晨跑入门</b><span>从快走开始<br>逐步过渡到跑</span></div>
+        <div class="big-plan e"><b>🧎 久坐肩颈改善</b><span>缓解肩颈紧绷<br>放松肌肉</span></div>
+        <div class="big-plan f"><b>💃 体态改善</b><span>改善圆肩驼背<br>调整身体姿态</span></div>
+        <div class="big-plan g"><b>🌸 女生轻塑形</b><span>低压力训练<br>练出线条感</span></div>
+        <div class="big-plan h"><b>🏋️ 男生体能唤醒</b><span>唤醒力量感<br>提升体能</span></div>
+      </div>
+    </div>
+
+    <div class="card col-3">
+      <h2><span class="heart">♥</span>30 天执行墙示例</h2>
+      <div class="exec-grid">
+        <div class="exec-day">D01<small>□</small></div><div class="exec-day">D02<small>□</small></div><div class="exec-day">D03<small>□</small></div><div class="exec-day">D04<small>□</small></div><div class="exec-day">D05<small>□</small></div><div class="exec-day">D06<small>□</small></div><div class="exec-day">D07<small>□</small></div><div class="exec-day">D08<small>□</small></div><div class="exec-day">D09<small>□</small></div><div class="exec-day">D10<small>□</small></div><div class="exec-day">D11<small>□</small></div><div class="exec-day">D12<small>□</small></div><div class="exec-day">D13<small>□</small></div><div class="exec-day">D14<small>□</small></div><div class="exec-day">D15<small>□</small></div><div class="exec-day">D16<small>□</small></div><div class="exec-day">D17<small>□</small></div><div class="exec-day">D18<small>□</small></div><div class="exec-day">D19<small>□</small></div><div class="exec-day">D20<small>□</small></div><div class="exec-day">D21<small>□</small></div><div class="exec-day">D22<small>□</small></div><div class="exec-day">D23<small>□</small></div><div class="exec-day">D24<small>□</small></div><div class="exec-day">D25<small>□</small></div><div class="exec-day">D26<small>□</small></div><div class="exec-day">D27<small>□</small></div><div class="exec-day">D28<small>□</small></div><div class="exec-day">D29<small>□</small></div><div class="exec-day">D30<small>□</small></div>
+      </div>
+    </div>
+
+    <div class="card col-3">
+      <h2><span class="heart">♥</span>成就拼图墙</h2>
+      <p style="margin:0 0 8px;color:#666;font-size:13px">完成 20 / 30 块 <span style="float:right">67%</span></p>
+      <div class="progress"><i></i></div>
+      <div class="puzzle" style="height:200px;margin-top:12px"></div>
+      <p style="font-size:13px;color:#777;margin-bottom:0">每天完成一块，30 天拼出属于你的成就图。</p>
+    </div>
+
+    <div class="card col-2">
+      <h2><span class="heart">♥</span>每日记录 & 身体数据</h2>
+      <div class="data-box">
+        <div class="form-list">
+          <div>日期</div><div>计划</div><div>天数</div><div>运动类型</div><div>训练时长</div><div>强度</div><div>心情</div><div>完成状态</div>
+        </div>
+        <div>
+          <div class="chart"></div>
+          <div class="donut"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card col-2">
+      <h2><span class="heart">♥</span>适合谁？</h2>
+      <div class="list-check">
+        <div>运动小白 / 久坐上班族</div>
+        <div>想减脂但不想乱练的人</div>
+        <div>想在家运动的人</div>
+        <div>想改善肩颈和体态的人</div>
+        <div>想重新建立运动习惯的人</div>
+      </div>
+    </div>
+
+    <div class="card col-4">
+      <h2><span class="heart">♥</span>你将获得</h2>
+      <div class="feature-icons" style="max-width:none;margin:0">
+        <div class="icon-card"><div class="icon">📅</div><b>8套计划</b><span>任选路线</span></div>
+        <div class="icon-card"><div class="icon">🗓</div><b>D01-D30</b><span>执行墙</span></div>
+        <div class="icon-card"><div class="icon">♡</div><b>每日打卡</b><span>日记库</span></div>
+        <div class="icon-card"><div class="icon">↗</div><b>身体数据</b><span>追踪库</span></div>
+        <div class="icon-card"><div class="icon">❖</div><b>成就拼图</b><span>激励系统</span></div>
+      </div>
+    </div>
+
+    <div class="card col-3">
+      <h2>使用说明</h2>
+      <div class="list-check">
+        <div>选择适合自己的计划</div>
+        <div>从 D01 开始，每天完成一个格子</div>
+        <div>完成训练后记录打卡</div>
+        <div>每周一次复盘，调整节奏</div>
+        <div>坚持 30 天，遇见更好的自己</div>
+      </div>
+    </div>
+
+    <div class="card col-3">
+      <h2>常见问题</h2>
+      <div class="faq">
+        <div><b>Q：我是新手可以用吗？</b><br>A：可以，建议从轻运动习惯计划开始。</div>
+        <div><b>Q：可以在手机上用吗？</b><br>A：可以，手机和电脑都适配。</div>
+        <div><b>Q：每天需要多久？</b><br>A：大多数训练约 10-30 分钟。</div>
+        <div><b>Q：中断了怎么办？</b><br>A：不用重来，继续下一格即可。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <button onclick="window.scrollTo({top:0,behavior:'smooth'})">回到顶部预览</button>
+    <button class="secondary" onclick="alert('标准版定位：8套计划 + 30天执行 + 打卡记录 + 基础身体数据 + 成就拼图。PRO版后续再加高级图表、周报月报、照片墙和分享海报。')">查看版本定位</button>
+  </div>
+</div>
+<img src="https://lvupupui.github.io/notion-widgets/pixel.gif" width="1" height="1" style="display:none">
+</body>
+</html>

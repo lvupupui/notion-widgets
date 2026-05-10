@@ -3,71 +3,108 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>元五七｜Notion 中文组件包</title>
+<title>元五七 · 治愈系效率工具</title>
 <style>
-:root{--bg1:#FFE2EF;--bg2:#F6E7FF;--bg3:#FFF8EF;--pink:#FF6B9D;--pink2:#FF9BC2;--purple:#7B4BA3;--text:#4B2B68;--muted:#8B6AA6;--card:#fff;--shadow:0 18px 44px rgba(123,75,163,.16)}
+:root{--bg1:#FFE2EF;--bg2:#F6E7FF;--bg3:#FFF8EF;--pink:#FF6B9D;--pink2:#FF9BC2;--purple:#7B4BA3;--text:#4B2B68;--muted:#8B6AA6;--card:#fff;--shadow:0 18px 44px rgba(123,75,163,.16);--green:#2e7d32;--orange:#e65100;--teal:#00796b}
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:var(--text);scroll-behavior:smooth}
 body{padding:18px;background:radial-gradient(circle at 7% 6%,rgba(255,255,255,.85) 0 7%,transparent 20%),radial-gradient(circle at 92% 10%,rgba(255,214,107,.33) 0 8%,transparent 23%),linear-gradient(180deg,var(--bg1),var(--bg2) 44%,var(--bg3))}
 .page{max-width:900px;margin:0 auto}
 .hero{text-align:center;padding:30px 20px 20px}
 .logo{width:64px;height:64px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--pink),#A987E8);color:#fff;font-weight:950;font-size:28px;border:3px solid #fff;box-shadow:var(--shadow)}
-h1{font-size:clamp(32px,5vw,52px);font-weight:950;color:var(--purple);margin:0;text-shadow:3px 3px 0 #fff,-3px 3px 0 #fff}
+h1{font-size:clamp(28px,5vw,44px);font-weight:950;color:var(--purple);margin:0;text-shadow:3px 3px 0 #fff,-3px 3px 0 #fff}
 h1 .pink{color:var(--pink)}
 .hero p{color:var(--muted);font-size:16px;margin:8px 0 0}
-.card{background:var(--card);border-radius:24px;padding:24px;margin:16px 0;box-shadow:0 10px 30px rgba(123,75,163,.1);border:2px solid rgba(255,255,255,.95)}
-.card h2{font-size:24px;color:var(--purple);margin:0 0 6px}
-.card .price{display:inline-block;padding:4px 14px;border-radius:999px;font-size:18px;font-weight:900;margin-left:8px}
-.price-free{background:#e8f5e9;color:#2e7d32}
-.price-std{background:#fff3e0;color:#e65100}
-.price-pro{background:#ede7f6;color:#4a148c}
-.card .desc{color:var(--muted);font-size:14px;margin:8px 0 14px}
-.card .features{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-.tag{display:inline-block;padding:4px 10px;border-radius:10px;font-size:12px;font-weight:700;background:#f5f0ff;color:var(--purple)}
-.btn{display:inline-block;padding:10px 22px;border-radius:999px;font-weight:900;text-decoration:none;margin-right:8px;font-size:14px;transition:all .2s}
+.card{background:var(--card);border-radius:24px;padding:20px 24px;margin:14px 0;box-shadow:0 10px 30px rgba(123,75,163,.1);border:2px solid rgba(255,255,255,.95)}
+.card h2{font-size:20px;color:var(--purple);margin:0 0 4px}
+.card h3{font-size:18px;color:var(--purple);margin:0 0 4px}
+.card .desc{color:var(--muted);font-size:14px;margin:6px 0 12px;line-height:1.55}
+.card .features{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.tag{display:inline-block;padding:3px 9px;border-radius:10px;font-size:11px;font-weight:700;background:#f5f0ff;color:var(--purple)}
+.btn{display:inline-block;padding:10px 20px;border-radius:999px;font-weight:900;text-decoration:none;margin-right:8px;font-size:13px;transition:all .2s}
 .btn-primary{background:linear-gradient(90deg,var(--pink),var(--pink2));color:#fff;box-shadow:0 6px 18px rgba(255,107,157,.25)}
 .btn-primary:hover{transform:translateY(-2px)}
 .btn-outline{background:#fff;color:var(--purple);border:2px solid var(--pink)}
 .btn-outline:hover{background:#f5f0ff}
-.old-link{display:block;text-align:center;margin:24px 0;color:var(--muted);font-size:13px}
-footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.section-title{font-size:22px;color:var(--purple);margin:28px 0 8px;padding-left:12px;border-left:4px solid var(--pink)}
+.emoji{font-size:28px;margin-right:4px;vertical-align:middle}
+footer{text-align:center;padding:32px 20px;color:var(--muted);font-size:12px}
+footer a{color:var(--pink)}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="page">
 <div class="hero">
 <div class="logo">元</div>
-<h1>元五七 · <span class="pink">Notion 中文组件包</span></h1>
-<p>把 Notion 变成高颜值工作台 · 一个链接，3 秒嵌入</p>
+<h1>元五七 · <span class="pink">治愈系效率工具</span></h1>
+<p>把每天重复的小事变成可爱的仪式感</p>
+</div>
+
+<h2 class="section-title">🛠️ 独立小工具</h2>
+<p style="color:var(--muted);font-size:14px;margin:0 0 14px">打开即用，无需安装。加到手机桌面就是一个轻量App。</p>
+
+<div class="grid2">
+
+<div class="card">
+<div class="features"><span class="tag">🍜 今天吃什么</span><span class="tag">🆓 免费</span></div>
+<div class="desc">按饭点智能推荐，收藏+权重+避免重复。支持自定义常点和批量添加。自带42道基础菜库。</div>
+<a class="btn btn-primary" href="food-picker.html">▶ 打开使用</a>
 </div>
 
 <div class="card">
-<h2>🆓 免费版 <span class="price price-free">¥0</span></h2>
+<div class="features"><span class="tag">💰 存钱小管家</span><span class="tag">🆓 免费</span></div>
+<div class="desc">奶茶钱攒起来真的会上瘾。可视化存钱进度，自定义目标，导入导出备份。</div>
+<a class="btn btn-primary" href="saving/">▶ 打开使用</a>
+</div>
+
+<div class="card">
+<div class="features"><span class="tag">✅ 习惯打卡器</span><span class="tag">🆓 免费</span></div>
+<div class="desc">粉色手机小工具。每天打卡，坚持可视化。PWA 支持，加到桌面像原生 App。</div>
+<a class="btn btn-primary" href="habit/">▶ 打开使用</a>
+</div>
+
+<div class="card">
+<div class="features"><span class="tag">💪 健身计划</span><span class="tag">🆓 免费</span></div>
+<div class="desc">居家锻炼计划表。标准化训练日程，可自定义调整。</div>
+<a class="btn btn-primary" href="fitness.html">▶ 打开使用</a>
+</div>
+
+</div>
+
+<h2 class="section-title" style="margin-top:36px">🎨 Notion 工作台组件</h2>
+<p style="color:var(--muted);font-size:14px;margin:0 0 14px">一个链接嵌入 Notion，秒变高颜值仪表盘</p>
+
+<div class="card">
+<h3>🆓 免费版</h3>
 <div class="desc">10 个组件，一屏仪表盘。日历/时钟/倒计时/名言/导航/天气，打开即用。</div>
-<div class="features"><span class="tag">📅 日历</span><span class="tag">⏰ 时钟</span><span class="tag">⏳ 倒计时</span><span class="tag">💬 名言</span><span class="tag">👋 问候</span><span class="tag">🌤️ 天气</span><span class="tag">🎀 CTA</span></div>
+<div class="features"><span class="tag">📅 日历</span><span class="tag">⏰ 时钟</span><span class="tag">⏳ 倒计时</span><span class="tag">💬 名言</span><span class="tag">👋 问候</span><span class="tag">🌤️ 天气</span></div>
 <a class="btn btn-primary" href="dashboard-free.html">▶ 立即使用</a>
 <a class="btn btn-outline" href="dashboard-free.html" target="_blank">🔗 复制链接</a>
 </div>
 
 <div class="card">
-<h2>⭐ 标准版 <span class="price price-std">¥19.9</span></h2>
-<div class="desc">16 个组件，完整工作台。比免费版多了番茄钟+习惯打卡+手账便签+目标进度+月预算+阅读清单。</div>
-<div class="features"><span class="tag">🍅 番茄钟</span><span class="tag">✅ 习惯打卡</span><span class="tag">📝 手账</span><span class="tag">🎯 目标</span><span class="tag">💰 预算</span><span class="tag">📚 阅读</span><span class="tag">😊 心情</span></div>
-<a class="btn btn-primary" href="dashboard-standard.html">▶ 立即使用</a>
+<h3>⭐ 标准版 <span style="font-size:16px;font-weight:900;color:var(--orange)">¥19.9</span></h3>
+<div class="desc">16 个组件，完整工作台。番茄钟+习惯打卡+手账+目标进度+月预算+阅读清单。</div>
+<div class="features"><span class="tag">🍅 番茄钟</span><span class="tag">✅ 打卡</span><span class="tag">📝 手账</span><span class="tag">🎯 目标</span><span class="tag">💰 预算</span><span class="tag">📚 阅读</span></div>
+<a class="btn btn-primary" href="dashboard-standard.html">▶ 打开使用</a>
 <a class="btn btn-outline" href="dashboard-standard.html" target="_blank">🔗 复制链接</a>
 </div>
 
 <div class="card">
-<h2>👑 Pro 版 <span class="price price-pro">¥49.9</span></h2>
-<div class="desc">24 个组件，自由搭配。6 套预设一键切换，支持本地图片上传，满屏屏保模式。</div>
-<div class="features"><span class="tag">🎛️ DIY搭配</span><span class="tag">🖥️ 屏保模式</span><span class="tag">🖼️ 本地图片</span><span class="tag">🌙 农历</span><span class="tag">🎊 节假日</span><span class="tag">🧳 旅行</span><span class="tag">🌍 地球仪</span></div>
+<h3>👑 Pro 版 <span style="font-size:16px;font-weight:900;color:var(--purple)">¥49.9</span></h3>
+<div class="desc">24 个组件，自由搭配。6 套预设一键切换，支持本地图片上传，屏保模式。</div>
+<div class="features"><span class="tag">🎛️ DIY搭配</span><span class="tag">🖥️ 屏保</span><span class="tag">🖼️ 上传图</span><span class="tag">🌙 农历</span><span class="tag">🎊 节假日</span></div>
 <a class="btn btn-primary" href="dashboard-pro.html">▶ 打开搭配器</a>
 <a class="btn btn-outline" href="dashboard-pro.html" target="_blank">🔗 复制链接</a>
 </div>
 
-<p class="old-link">💰 <a href="saving/" style="color:var(--pink)">存钱小管家</a> · 📱 <a href="habit-app.html" style="color:var(--pink)">手机习惯打卡器</a> · 📖 <a href="使用攻略.md" style="color:var(--pink)">使用攻略</a> · 🛒 <a href="https://seller.xiaohongshu.com" style="color:var(--pink)">小红书店铺</a></p>
 </div>
-<footer>元五七 · 治愈系 Notion 效率工具 · 关注/点赞/评论免费获取</footer>
+<footer>
+元五七 · 治愈系效率工具 · 全平台免费使用<br>
+📖 <a href="使用攻略.md">使用攻略</a> · 🛒 <a href="https://seller.xiaohongshu.com">小红书店铺</a>
+</footer>
 <img src="https://lvupupui.github.io/notion-widgets/pixel.gif" width="1" height="1" style="display:none">
 </body>
 </html>
